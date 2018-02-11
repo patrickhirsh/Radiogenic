@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class Enemy_02_controller : MonoBehaviour {
 
     public Transform target;//set target from inspector instead of looking in Update
     public float speed = 3f;
     public float hitbox = .7f;
+    public float DragVal = .5f;
     private Rigidbody2D rb;
-    public float dragVal = .5f;
-    public float hp;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.drag = dragVal;
+        rb.drag = DragVal;
     }
 
     void FixedUpdate()
@@ -22,7 +21,7 @@ public class EnemyController : MonoBehaviour {
 
         //rotate to look at the player
         //transform.LookAt(target.position);
-
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, target.position - transform.position);
         //rb.AddForce(transform.forward * speed);
         var direction = Vector3.zero;
         //move towards the player
@@ -33,26 +32,5 @@ public class EnemyController : MonoBehaviour {
 
             Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
         }
-    }
-
-    //This is the function we need to call from the bullet object when we hit the correct collider
-    void Hit()
-    {
-        if(hp > 1)
-        {
-            hp--;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
-
-    //This SHOULD run when the destroy method is called on a game object
-    void OnDestroy()
-    {
-        Debug.Log("OH no we was destroy");
-        //Activate destroyed particle effect
-
     }
 }
