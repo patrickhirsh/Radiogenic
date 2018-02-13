@@ -22,6 +22,7 @@ public class Enemy_02_controller : MonoBehaviour {
         //rotate to look at the player
         //transform.LookAt(target.position);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, target.position - transform.position);
+       
         //rb.AddForce(transform.forward * speed);
         var direction = Vector3.zero;
         //move towards the player
