@@ -260,7 +260,7 @@ Prefab:
         type: 2}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1104709104}
+      objectReference: {fileID: 1062730331}
     - target: {fileID: 50589649003581664, guid: 96963c26093c9594c9b72ac62971555d,
         type: 2}
       propertyPath: m_LinearDrag
@@ -270,6 +270,16 @@ Prefab:
         type: 2}
       propertyPath: DragVal
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061223705022216, guid: 96963c26093c9594c9b72ac62971555d,
+        type: 2}
+      propertyPath: period
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114061223705022216, guid: 96963c26093c9594c9b72ac62971555d,
+        type: 2}
+      propertyPath: rotationSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96963c26093c9594c9b72ac62971555d, type: 2}
@@ -412,6 +422,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1062730331 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4807827925921398, guid: e56c763df3282624f9ba40dcd535359a,
+    type: 2}
+  m_PrefabInternal: {fileID: 873029746}
 --- !u!1 &1104709099
 GameObject:
   m_ObjectHideFlags: 0

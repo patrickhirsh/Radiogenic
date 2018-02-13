@@ -10,6 +10,8 @@ public class Enemy_02_controller : MonoBehaviour {
     public float DragVal = .5f;
     private Rigidbody2D rb;
 
+    public float rotationSpeed;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -21,8 +23,8 @@ public class Enemy_02_controller : MonoBehaviour {
 
         //rotate to look at the player
         //transform.LookAt(target.position);
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, target.position - transform.position);
-       
+        var neededRotation = Quaternion.LookRotation(target.position - transform.position);
+        Quaternion.RotateTowards(transform.rotation, target.rotation, rotationSpeed);
         //rb.AddForce(transform.forward * speed);
         var direction = Vector3.zero;
         //move towards the player
