@@ -33,4 +33,17 @@ public class Enemy_02_controller : MonoBehaviour {
             Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
         }
     }
+
+    void CheckCol(Collision2D col)
+    {
+
+        if(col.otherCollider.GetType() == typeof(CircleCollider2D))
+        {
+            //do the destroy
+        }
+        else
+        {
+            //destroy the col object, which is probs a bullets
+        }
+    }
 }
