@@ -325,15 +325,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4807827925921398, guid: e56c763df3282624f9ba40dcd535359a, type: 2}
       propertyPath: m_LocalScale.x
-      value: 0.504612
+      value: 0.17828543
       objectReference: {fileID: 0}
     - target: {fileID: 4807827925921398, guid: e56c763df3282624f9ba40dcd535359a, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.49011227
+      value: 0.17316248
       objectReference: {fileID: 0}
     - target: {fileID: 4807827925921398, guid: e56c763df3282624f9ba40dcd535359a, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.6236631
+      value: 0.22034758
       objectReference: {fileID: 0}
     - target: {fileID: 212630542860877140, guid: e56c763df3282624f9ba40dcd535359a,
         type: 2}
@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4ccc4c7427afb64384b81a0a838ff2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1104709104}
+  target: {fileID: 1062730331}
   speed: 6
   hitbox: 0.7
   dragVal: 0.5
