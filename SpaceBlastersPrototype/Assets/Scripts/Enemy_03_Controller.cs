@@ -25,9 +25,7 @@ public class Enemy_03_Controller : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Debug.Log(Time.time);
-        //rotate to look at the player
-        //transform.LookAt(target.position);
+        
         if(periodz < Time.time)
         {
             periodz += periodzint;
@@ -40,10 +38,10 @@ public class Enemy_03_Controller : MonoBehaviour {
         {//move if distance from target is greater than 1
             if (charge1)
             {
-                Debug.Log("Inside Charge one if");
+                
                 if (charge2 > 10.0f)
                 {
-                    Debug.LogError("Should shoot now");
+                    
                     charge1 = false;
                     charge2 = 0;
                     direction = target.position - transform.position;
@@ -71,4 +69,23 @@ public class Enemy_03_Controller : MonoBehaviour {
     void Update () {
 		
 	}
+
+    void Hit(){
+        Debug.Log("Hit func called");
+        hp--;
+        if(hp == 0){
+            Destroy(this.gameObject);
+        }
+
+    }
+
+
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Hit an Enemy_03");
+        if(col.gameObject.tag == "bullet"){
+            Hit();
+        }
+    }
 }

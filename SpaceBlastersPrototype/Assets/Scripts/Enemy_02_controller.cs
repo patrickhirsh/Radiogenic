@@ -7,6 +7,7 @@ public class Enemy_02_controller : MonoBehaviour {
     public Transform target;//set target from inspector instead of looking in Update
     public float speed = 3f;
     public float hitbox = .7f;
+    public float hp = 3.0f;
     public float DragVal = .5f;
     private Rigidbody2D rb;
 
@@ -40,18 +41,31 @@ public class Enemy_02_controller : MonoBehaviour {
         }
     }
 
-    void CheckCol(Collision2D col)
-    {
-
-        
-
-        if(col.otherCollider.GetType() == typeof(CircleCollider2D))
-        {
-            //do the destroy
+    void Hit(){
+        //we got hit
+        hp--;
+        if(hp == 0.0f){
+            Destroy(this.gameObject);
         }
-        else
-        {
-            //destroy the col object, which is probs a bullets
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("Hit an Enemy_02");
+        if(col.gameObject.tag == "bullet"){
+            if(col.collider.GetType() == typeof(CircleCollider2D)){
+                Hit();
+            }
+            else{
+                Destroy(col.gameObject);
+            }
+        }
+        else if (col.gameObject.tag == "player"){
+            //use 
+            col.gameObject.SendMessage("Hit");
+        }
+        else{
+            //probs hit another enmey zzzzzz
         }
     }
 }
