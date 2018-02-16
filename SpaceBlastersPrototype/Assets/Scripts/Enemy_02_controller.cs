@@ -34,7 +34,7 @@ public class Enemy_02_controller : MonoBehaviour {
         if (Vector3.Distance(transform.position, target.position) > hitbox)
         {//move if distance from target is greater than 1
             direction2 = target.position - transform.position;
-            rb.AddRelativeForce(direction.normalized * speed, ForceMode2D.Force);
+            rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
 
             Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
         }

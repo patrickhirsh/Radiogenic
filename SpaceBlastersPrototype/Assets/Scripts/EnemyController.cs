@@ -19,20 +19,16 @@ public class EnemyController : MonoBehaviour {
 
     void FixedUpdate()
     {
-
-        //rotate to look at the player
-        //transform.LookAt(target.position);
-
-        //rb.AddForce(transform.forward * speed);
+        //reset direction every update
         var direction = Vector3.zero;
-        //move towards the player
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
-        {//move if distance from target is greater than 1
-            direction = target.position - transform.position;
-            rb.AddRelativeForce(direction.normalized * speed, ForceMode2D.Force);
-
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
-        }
+        //set direction to be pointing towards player
+        direction = target.position - transform.position;
+        //add forst in the desired direction at the desired speed
+        rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
+        
+        //clamp so we don't go too fast
+        Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+        
     }
 
     //This is the function we need to call from the bullet object when we hit the correct collider
