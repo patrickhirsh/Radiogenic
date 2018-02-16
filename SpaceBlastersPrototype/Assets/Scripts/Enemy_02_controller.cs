@@ -44,13 +44,10 @@ public class Enemy_02_controller : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Hit an Enemy_02");
-        //if(col.collider.GetType() == typeof(CircleCollider2D))
-        //{
-        //        Destroy(this);
-        //        Destroy(col.gameObject);
-        //}
-        //else{
-        //    Destroy(col.gameObject);
-        //}
+        if(col.gameObject.tag == "bullet"){
+            if(col.collider.GetType() == typeof(CircleCollider2D)){
+                
+            }
+        }
     }
 }
