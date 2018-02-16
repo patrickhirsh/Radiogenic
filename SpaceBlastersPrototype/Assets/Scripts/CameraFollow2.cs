@@ -19,6 +19,7 @@ public class CameraFollow2 : MonoBehaviour {
         //if(target.position.x > GameObject.Find("MainCamera").transform.position.x + 5)
         //transform.position = new Vector2(target.position.x, target.position.y);
         _distance = Vector2.Distance(transform.position, target.position);
+        moveSpeed = _distance - _triggerDistance;
         if(_distance > _triggerDistance){
             transform.position = Vector3.Slerp(transform.position, target.position, moveSpeed);
         }

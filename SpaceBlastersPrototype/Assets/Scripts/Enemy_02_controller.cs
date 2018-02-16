@@ -40,18 +40,17 @@ public class Enemy_02_controller : MonoBehaviour {
         }
     }
 
-    void CheckCol(Collision2D col)
+
+    void OnCollisionEnter2D(Collision2D col)
     {
-
-        
-
-        if(col.otherCollider.GetType() == typeof(CircleCollider2D))
-        {
-            //do the destroy
-        }
-        else
-        {
-            //destroy the col object, which is probs a bullets
-        }
+        Debug.Log("Hit an Enemy_02");
+        //if(col.collider.GetType() == typeof(CircleCollider2D))
+        //{
+        //        Destroy(this);
+        //        Destroy(col.gameObject);
+        //}
+        //else{
+        //    Destroy(col.gameObject);
+        //}
     }
 }

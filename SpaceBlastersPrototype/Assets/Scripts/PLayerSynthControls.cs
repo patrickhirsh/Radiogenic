@@ -49,9 +49,8 @@ public class PLayerSynthControls : MonoBehaviour
             velocity.x = 10f * velocityRate;
             velocity.y = 10f * velocityRate;
         }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            Debug.Log("A");
+        else if (Input.GetKey(KeyCode.A)){
+            
             velocity.x = -10f * velocityRate;
             if (Input.GetKey(KeyCode.W))             {                 velocity.y = 10f * velocityRate;             }             else if (Input.GetKey(KeyCode.S))             {                 velocity.y = -10f * velocityRate;             }             else             {                 if (velocity.y > 0)                 {                     velocity.y -= 5f;                 }                 else if (velocity.x < 0)                 {                     velocity.y += 5f;                 }             }
         }
