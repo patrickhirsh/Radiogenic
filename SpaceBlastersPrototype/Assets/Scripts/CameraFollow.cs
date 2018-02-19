@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         //if(target.position.x > GameObject.Find("MainCamera").transform.position.x + 5)
         //transform.position = new Vector2(target.position.x, target.position.y);
         distance = Vector2.Distance(transform.position, target.position);

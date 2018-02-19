@@ -15,6 +15,7 @@ public class PLayerSynthControls : MonoBehaviour
     bool shotgun = false;
     public int thrust = 1000;
     public float variance = 0.2f;
+    public int hp = 10;
 
     // Use this for initialization
     void Start()
@@ -28,8 +29,24 @@ public class PLayerSynthControls : MonoBehaviour
 
     }
 
+    void Hit(){
+        hp--;
+        if(hp <= 0)
+        {
+           Application.Quit();
+           Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy"){
+            Hit();
+        }
+    }
+
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
