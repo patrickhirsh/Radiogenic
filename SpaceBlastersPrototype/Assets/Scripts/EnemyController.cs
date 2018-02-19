@@ -48,6 +48,17 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag  == "bullet")
+        {
+            Hit();
+            Destroy(col.gameObject);
+            
+        }
+    }
+
     //This SHOULD run when the destroy method is called on a game object
     void OnDestroy()
     {

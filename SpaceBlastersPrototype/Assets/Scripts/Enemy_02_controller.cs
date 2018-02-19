@@ -53,7 +53,7 @@ public class Enemy_02_controller : MonoBehaviour {
     {
         Debug.Log("Hit an Enemy_02");
         if(col.gameObject.tag == "bullet"){
-            if(col.collider.GetType() == typeof(CircleCollider2D)){
+            if(col.otherCollider.GetType() == typeof(CircleCollider2D)){
                 Hit();
             }
             else{

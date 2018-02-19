@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4412189471493500}
-  - component: {fileID: 212036260144961870}
   - component: {fileID: 114567125800261640}
   - component: {fileID: 50039503090536624}
   - component: {fileID: 58994323802045616}
+  - component: {fileID: 212036260144961870}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Untagged
@@ -93,7 +93,7 @@ MonoBehaviour:
   speed: 3
   hitbox: 0.7
   dragVal: 0.5
-  hp: 0
+  hp: 5
 --- !u!212 &212036260144961870
 SpriteRenderer:
   m_ObjectHideFlags: 1

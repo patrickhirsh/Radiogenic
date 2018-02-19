@@ -93,7 +93,7 @@ MonoBehaviour:
   speed: 3
   hitbox: 0.7
   dragVal: 0.5
-  hp: 0
+  hp: 5
   periodzint: 5
 --- !u!212 &212124825011948506
 SpriteRenderer:

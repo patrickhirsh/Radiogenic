@@ -86,6 +86,7 @@ public class Enemy_03_Controller : MonoBehaviour {
         Debug.Log("Hit an Enemy_03");
         if(col.gameObject.tag == "bullet"){
             Hit();
+            Destroy(col.gameObject);
         }
     }
 }

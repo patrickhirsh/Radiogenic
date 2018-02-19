@@ -351,26 +351,6 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1062730331}
-    - target: {fileID: 50589649003581664, guid: 96963c26093c9594c9b72ac62971555d,
-        type: 2}
-      propertyPath: m_LinearDrag
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061223705022216, guid: 96963c26093c9594c9b72ac62971555d,
-        type: 2}
-      propertyPath: DragVal
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061223705022216, guid: 96963c26093c9594c9b72ac62971555d,
-        type: 2}
-      propertyPath: period
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114061223705022216, guid: 96963c26093c9594c9b72ac62971555d,
-        type: 2}
-      propertyPath: rotationSpeed
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96963c26093c9594c9b72ac62971555d, type: 2}
   m_IsPrefabParent: 0
@@ -616,7 +596,7 @@ MonoBehaviour:
   speed: 3
   hitbox: 0.7
   dragVal: 0.5
-  hp: 0
+  hp: 3
 --- !u!212 &1104709103
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -765,6 +745,11 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 1062730331}
+    - target: {fileID: 114885261529036094, guid: 9d96755c1521fef4e860b92a6e80b962,
+        type: 2}
+      propertyPath: hp
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d96755c1521fef4e860b92a6e80b962, type: 2}
   m_IsPrefabParent: 0
