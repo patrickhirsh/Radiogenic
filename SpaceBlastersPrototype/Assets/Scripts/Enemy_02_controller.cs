@@ -17,6 +17,9 @@ public class Enemy_02_controller : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
         rb.drag = DragVal;
+
+        //we need to assign the target here, otherwise enemies generated at runtime won't have a target
+        target = GameObject.Find("Player").transform;
     }
 
     void FixedUpdate()
