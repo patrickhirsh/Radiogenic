@@ -9,13 +9,16 @@ public class PLayerSynthControls : MonoBehaviour
     public float velocityRate = 20f;
     public float accelerationRate;
     Rigidbody2D rb = new Rigidbody2D();
-    float bulletDistance = 50f;
+    float bulletDistance = 1f;
     public GameObject bulletPrefab;
+    float interval = 0;
+    bool shotgun = false;
 
     // Use this for initialization
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
+        bulletPrefab = (GameObject)Resources.Load("bullet");
     }
 
     private void Rotate()
@@ -100,9 +103,20 @@ public class PLayerSynthControls : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().AddForce(velocity);
 
-        if (Input.GetMouseButtonDown(0))
+        if (Time.time > interval + 1f)
+            shotgun = true;
+
+        if (Input.GetMouseButtonDown(0) && shotgun)
         {
-            if(Input.mousePosition.x >= 0 && Input.mousePosition.y >= 0)
+            
+            
+            //another if statement, and if(Time.time > oldTime){
+            //oldtime += SomePeriodInbetween)
+            //if current time is longer than last time you shot + some interval
+           
+            //then you can do bullet creation
+            //otherwise, don't 
+            if(Input.mousePosition.x >= 0 && Input.mousePosition.y >= 0 )
             {
                 //Get mouse position
                 Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
@@ -145,12 +159,33 @@ public class PLayerSynthControls : MonoBehaviour
                 Destroy(go4, 1.0f);
                 Destroy(go5, 1.0f);
                 Destroy(go6, 1.0f);
+
+               
+
   
             }
-
-
+           
+            shotgun = false;
+            interval = Time.time;
            
         }
+        else if (Input.GetMouseButton(0))
+        {
+            
+            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
+            position = Camera.main.ScreenToWorldPoint(position);
+
+          
+
+                GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            go1.transform.LookAt(position + new Vector3(Random.Range(-.5f, .5f), Random.Range(-.5f, .5f)));
+                go1.GetComponent<Rigidbody2D>().AddForce(go1.transform.forward * 1500);
+                Destroy(go1, 1.0f);
+
+
+
+        }
+
 
 
 
