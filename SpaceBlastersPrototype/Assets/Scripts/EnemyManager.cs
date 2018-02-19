@@ -15,11 +15,12 @@ public class EnemyManager : MonoBehaviour
 
     // scales the "percentage" our random spawn system uses.
     // useful for uniformly changing the spawn rate for all enemies. 1 = out of 100%
-    float spawnProbabilityFactor = 0.5f;
+    float spawnProbabilityFactor = 1f;
 
     // maximum percent chance that an enemy spawns on its respective spawn call
     int enemy01ProbabilityCutoff = 100;
     int enemy02ProbabilityCutoff = 50;
+    int enemy03ProbabilityCutoff = 80;
 
 
     // Singleton pattern
@@ -49,23 +50,21 @@ public class EnemyManager : MonoBehaviour
     // FixedUpdate is called 30 times per second
     void FixedUpdate()
     {
-        if (Time.time % spawnFrequency == 0)
-        {
-            SpawnEnemy01();
-        }
+        SpawnEnemy01();
+        SpawnEnemy02();
+        SpawnEnemy03();
+
     }
 
     void SpawnEnemy01()
     {
         // determine the spawn probability
-        double spawnProbability = Math.Sqrt((double)Time.time)*2;
+        double spawnProbability = Math.Sqrt((double)Time.time);
         if (spawnProbability > enemy01ProbabilityCutoff)
             spawnProbability = enemy01ProbabilityCutoff;
 
-        Console.WriteLine(spawnProbability);
-
         // determine if we should spawn an enemy
-        if (rnd.Next(0, (int)(100*spawnProbabilityFactor)) <= spawnProbability)
+        if (rnd.Next(0, (int)(100 * spawnProbabilityFactor)) <= spawnProbability)
         {
             // determine spawn point
             double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
@@ -75,5 +74,48 @@ public class EnemyManager : MonoBehaviour
             // spawn enemy
             var enemy = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX, (float)spawnY, 0), new Quaternion());
         }
+    }
+
+    void SpawnEnemy02()
+    {
+        // determine the spawn probability
+        double spawnProbability = (Time.time / 10);
+        if (spawnProbability > enemy02ProbabilityCutoff)
+            spawnProbability = enemy02ProbabilityCutoff;
+
+        // determine if we should spawn an enemy
+        if (rnd.Next(0, (int)(100 * spawnProbabilityFactor)) <= spawnProbability)
+        {
+            // determine spawn point
+            double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
+            double spawnX = Math.Cos(spawnAngle) * spawnRadius;
+            double spawnY = Math.Sin(spawnAngle) * spawnRadius;
+
+            // spawn enemy
+            var enemy = Instantiate(Resources.Load("Enemy_02"), new Vector3((float)spawnX, (float)spawnY, 0), new Quaternion());
+        }
+    }
+
+    void SpawnEnemy03()
+    {
+        if (((int)Time.time % 5) == 0)
+        {
+            // determine the spawn probability
+            double spawnProbability = (Time.time / 15);
+            if (spawnProbability > enemy03ProbabilityCutoff)
+                spawnProbability = enemy03ProbabilityCutoff;
+
+            // determine if we should spawn an enemy
+            if (rnd.Next(0, (int)(100 * spawnProbabilityFactor)) <= spawnProbability)
+            {
+                // determine spawn point
+                double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
+                double spawnX = Math.Cos(spawnAngle) * spawnRadius;
+                double spawnY = Math.Sin(spawnAngle) * spawnRadius;
+
+                // spawn enemy
+                var enemy = Instantiate(Resources.Load("Enemy_03"), new Vector3((float)spawnX, (float)spawnY, 0), new Quaternion());
+            }
+        }       
     }
 }
