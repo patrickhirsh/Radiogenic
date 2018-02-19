@@ -19,7 +19,7 @@ public class BulletController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "bullet" || coll.gameObject.tag == "Player")
-            Physics2D.IgnoreCollision(coll.collider, this.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(coll.otherCollider, this.GetComponent<Collider2D>());
         
     }
 }
