@@ -33,8 +33,8 @@ public class PLayerSynthControls : MonoBehaviour
         hp--;
         if(hp <= 0)
         {
-           Application.Quit();
-           Destroy(this.gameObject);
+           //Application.Quit();
+           //Destroy(this.gameObject);
         }
     }
 
