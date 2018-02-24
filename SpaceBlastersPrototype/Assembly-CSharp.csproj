@@ -58,10 +58,13 @@
      <Compile Include="Assets\Scripts\Enemy_03_Controller.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
+     <Compile Include="Assets\Scripts\FollowUV.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Old.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PLayerSynthControls.cs" />
+     <Compile Include="Assets\Scripts\ScrollUV.cs" />
+     <Compile Include="Assets\Scripts\SimplySpaceship.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Game Engines/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

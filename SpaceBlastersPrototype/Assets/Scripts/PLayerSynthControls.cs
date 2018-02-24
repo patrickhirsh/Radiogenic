@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PLayerSynthControls : MonoBehaviour
 {
@@ -33,8 +34,8 @@ public class PLayerSynthControls : MonoBehaviour
         hp--;
         if(hp <= 0)
         {
-           //Application.Quit();
-           //Destroy(this.gameObject);
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
         }
     }
 
@@ -60,7 +61,26 @@ public class PLayerSynthControls : MonoBehaviour
         {
             velocity.y = 10f * velocityRate;
 
-            if (Input.GetKey(KeyCode.D))             {                 velocity.x = 10f * velocityRate;             }             else if (Input.GetKey(KeyCode.A))             {                 velocity.x = -10f * velocityRate;             }             else             {                 if (velocity.x > 0)                 {                     velocity.x -= 5f;                 }                 else if (velocity.x < 0)                 {                     velocity.x += 5f;                 }             } 
+            if (Input.GetKey(KeyCode.D))
+            {
+                velocity.x = 10f * velocityRate;
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                velocity.x = -10f * velocityRate;
+            }
+            else
+            {
+                if (velocity.x > 0)
+                {
+                    velocity.x -= 5f;
+                }
+                else if (velocity.x < 0)
+                {
+                    velocity.x += 5f;
+                }
+            }
+
         }
 
         else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
@@ -77,13 +97,50 @@ public class PLayerSynthControls : MonoBehaviour
         {
             Debug.Log("A");
             velocity.x = -10f * velocityRate;
-            if (Input.GetKey(KeyCode.W))             {                 velocity.y = 10f * velocityRate;             }             else if (Input.GetKey(KeyCode.S))             {                 velocity.y = -10f * velocityRate;             }             else             {                 if (velocity.y > 0)                 {                     velocity.y -= 5f;                 }                 else if (velocity.x < 0)                 {                     velocity.y += 5f;                 }             }
+            if (Input.GetKey(KeyCode.W))
+            {
+                velocity.y = 10f * velocityRate;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                velocity.y = -10f * velocityRate;
+            }
+            else
+            {
+                if (velocity.y > 0)
+                {
+                    velocity.y -= 5f;
+                }
+                else if (velocity.x < 0)
+                {
+                    velocity.y += 5f;
+                }
+            }
         }
         else if (Input.GetKey(KeyCode.S))
         {
             velocity.y = -10f * velocityRate;
 
-            if (Input.GetKey(KeyCode.D))             {                 velocity.x = 10f * velocityRate;             }             else if (Input.GetKey(KeyCode.A))             {                 velocity.x = -10f * velocityRate;             }             else             {                 if (velocity.x > 0)                 {                     velocity.x -= 5f;                 }                 else if (velocity.x < 0)                 {                     velocity.x += 5f;                 }             } 
+            if (Input.GetKey(KeyCode.D))
+            {
+                velocity.x = 10f * velocityRate;
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                velocity.x = -10f * velocityRate;
+            }
+            else
+            {
+                if (velocity.x > 0)
+                {
+                    velocity.x -= 5f;
+                }
+                else if (velocity.x < 0)
+                {
+                    velocity.x += 5f;
+                }
+            }
+
         }
         else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
         {
@@ -99,7 +156,25 @@ public class PLayerSynthControls : MonoBehaviour
         {
             velocity.x = 10f * velocityRate;
 
-            if (Input.GetKey(KeyCode.W))             {                 velocity.y = 10f * velocityRate;             }             else if (Input.GetKey(KeyCode.S))             {                 velocity.y = -10f * velocityRate;             }             else             {                 if (velocity.y > 0)                 {                     velocity.y -= 5f;                 }                 else if (velocity.x < 0)                 {                     velocity.y += 5f;                 }             }
+            if (Input.GetKey(KeyCode.W))
+            {
+                velocity.y = 10f * velocityRate;
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                velocity.y = -10f * velocityRate;
+            }
+            else
+            {
+                if (velocity.y > 0)
+                {
+                    velocity.y -= 5f;
+                }
+                else if (velocity.x < 0)
+                {
+                    velocity.y += 5f;
+                }
+            }
         }
         else
         {
