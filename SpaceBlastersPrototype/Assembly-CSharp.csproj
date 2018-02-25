@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\CameraFollow2.cs" />
      <Compile Include="Assets\Scripts\Enemy_02_controller.cs" />
      <Compile Include="Assets\Scripts\Enemy_03_Controller.cs" />
+     <Compile Include="Assets\Scripts\Enemy_04_Controller.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\FollowUV.cs" />

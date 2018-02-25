@@ -708,6 +708,48 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 10.99
+--- !u!1001 &1856789205
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.12697868
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 3.3436337
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931807509682834, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f7a74fc2116614f4fa719ac024c5bd2d, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1995993202
 GameObject:
   m_ObjectHideFlags: 0
