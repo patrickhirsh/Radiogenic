@@ -10,7 +10,7 @@ public class EnemyManager : MonoBehaviour
 
     System.Random rnd;
 
-    int spawnRadius = 100;
+    int spawnRadius = 50;
     int spawnFrequency = 1;
 
     // scales the "percentage" our random spawn system uses.
@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
 
     // maximum percent chance that an enemy spawns on its respective spawn call
     int enemy01ProbabilityCutoff = 100;
-    int enemy02ProbabilityCutoff = 50;
+    int enemy02ProbabilityCutoff = 30;
     int enemy03ProbabilityCutoff = 80;
 
 
@@ -79,7 +79,7 @@ public class EnemyManager : MonoBehaviour
     void SpawnEnemy02()
     {
         // determine the spawn probability
-        double spawnProbability = (Time.time / 10);
+        double spawnProbability = (Time.time / 25);
         if (spawnProbability > enemy02ProbabilityCutoff)
             spawnProbability = enemy02ProbabilityCutoff;
 
@@ -101,7 +101,7 @@ public class EnemyManager : MonoBehaviour
         if (((int)Time.time % 5) == 0)
         {
             // determine the spawn probability
-            double spawnProbability = (Time.time / 15);
+            double spawnProbability = (Time.time / 18);
             if (spawnProbability > enemy03ProbabilityCutoff)
                 spawnProbability = enemy03ProbabilityCutoff;
 
