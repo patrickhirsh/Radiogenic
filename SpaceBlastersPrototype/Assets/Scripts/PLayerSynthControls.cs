@@ -197,7 +197,7 @@ public class PLayerSynthControls : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().AddForce(velocity);
 
-        if (Time.time > interval + 0.5f)
+        if (Time.time > interval + 0.25f)
         {
          shotgun = true;
         }

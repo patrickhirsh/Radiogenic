@@ -308,6 +308,8 @@
     <Compile Include="Assets\Scripts\CameraFollow2.cs" />
     <Compile Include="Assets\Scripts\Enemy_02_controller.cs" />
     <Compile Include="Assets\Scripts\Enemy_03_Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy_04_Controller.cs" />
+    <Compile Include="Assets\Scripts\Enemy_05_Controller.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\EnemyController2.cs" />
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
@@ -318,6 +320,7 @@
     <Compile Include="Assets\Scripts\PLayerSynthControls.cs" />
     <Compile Include="Assets\Scripts\ScrollUV.cs" />
     <Compile Include="Assets\Scripts\SimplySpaceship.cs" />
+    <Compile Include="Assets\Scripts\Spawnpoint_Script.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
