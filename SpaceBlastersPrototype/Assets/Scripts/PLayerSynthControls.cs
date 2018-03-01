@@ -15,7 +15,9 @@ public class PLayerSynthControls : MonoBehaviour
     float interval = 0;
     bool shotgun = false;
     public int thrust = 1000;
+    public int thrust2 = 1200;
     public float variance = 0.2f;
+    public float variance2 = 0.4f;
     public int hp = 10;
 
     // Use this for initialization
@@ -202,7 +204,7 @@ public class PLayerSynthControls : MonoBehaviour
          shotgun = true;
         }
 
-        if (Input.GetMouseButtonDown(0) && shotgun)
+        if (Input.GetMouseButtonDown(1) && shotgun)
         {
 
 
@@ -268,32 +270,32 @@ public class PLayerSynthControls : MonoBehaviour
             //go1.transform. = 1500;
 
 
-            float vari1 = Random.Range(-variance, variance);
-            float vari2 = Random.Range(-variance, variance);
-            float vari3 = Random.Range(-variance, variance);
-            float vari4 = Random.Range(-variance, variance);
-            float vari5 = Random.Range(-variance, variance);
-            float vari6 = Random.Range(-variance, variance);
-            float vari7 = Random.Range(-variance, variance);
-            float vari8 = Random.Range(-variance, variance);
-            float vari9 = Random.Range(-variance, variance);
-            float vari10 = Random.Range(-variance, variance);
-            float vari11 = Random.Range(-variance, variance);
-            float vari12 = Random.Range(-variance, variance);
+            float vari1 = Random.Range(-variance2, variance2);
+            float vari2 = Random.Range(-variance2, variance2);
+            float vari3 = Random.Range(-variance2, variance2);
+            float vari4 = Random.Range(-variance2, variance2);
+            float vari5 = Random.Range(-variance2, variance2);
+            float vari6 = Random.Range(-variance2, variance2);
+            float vari7 = Random.Range(-variance2, variance2);
+            float vari8 = Random.Range(-variance2, variance2);
+            float vari9 = Random.Range(-variance2, variance2);
+            float vari10 = Random.Range(-variance2, variance2);
+            float vari11 = Random.Range(-variance2, variance2);
+            float vari12 = Random.Range(-variance2, variance2);
 
             //Add forward force to the bullet
-            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari1), thrust * Mathf.Sin(angleR + vari1)));
-            go2.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari2), thrust * Mathf.Sin(angleR + vari2)));
-            go3.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari3), thrust * Mathf.Sin(angleR + vari3)));
-            go4.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari4), thrust * Mathf.Sin(angleR + vari4)));
-            go5.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari5), thrust * Mathf.Sin(angleR + vari5)));
-            go6.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari6), thrust * Mathf.Sin(angleR + vari6)));
-            go7.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari7), thrust * Mathf.Sin(angleR + vari7)));
-            go8.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari8), thrust * Mathf.Sin(angleR + vari8)));
-            go9.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari9), thrust * Mathf.Sin(angleR + vari9)));
-            go10.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari10), thrust * Mathf.Sin(angleR + vari10)));
-            go11.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari11), thrust * Mathf.Sin(angleR + vari11)));
-            go12.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari12), thrust * Mathf.Sin(angleR + vari12)));
+            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));
+            go2.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari2), thrust2 * Mathf.Sin(angleR + vari2)));
+            go3.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari3), thrust2 * Mathf.Sin(angleR + vari3)));
+            go4.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari4), thrust2 * Mathf.Sin(angleR + vari4)));
+            go5.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari5), thrust2 * Mathf.Sin(angleR + vari5)));
+            go6.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari6), thrust2 * Mathf.Sin(angleR + vari6)));
+            go7.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari7), thrust2 * Mathf.Sin(angleR + vari7)));
+            go8.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari8), thrust2 * Mathf.Sin(angleR + vari8)));
+            go9.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari9), thrust2 * Mathf.Sin(angleR + vari9)));
+            go10.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari10), thrust2 * Mathf.Sin(angleR + vari10)));
+            go11.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari11), thrust2 * Mathf.Sin(angleR + vari11)));
+            go12.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari12), thrust2 * Mathf.Sin(angleR + vari12)));
             //After a certain amount of seconds, destroy bullet
             Destroy(go1, 1.0f);
             Destroy(go2, 1.0f);
