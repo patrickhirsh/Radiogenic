@@ -12,12 +12,14 @@ public class PLayerSynthControls : MonoBehaviour
     Rigidbody2D rb = new Rigidbody2D();
     float bulletDistance = .1f;
     public GameObject bulletPrefab;
-    float interval = 0;
+    float shotGunInterval = 0;
+    float dashInterval = 0f;
     bool shotgun = false;
+    bool dash = true;
     public int thrust = 1000;
     public int thrust2 = 1200;
     public float variance = 0.2f;
-    public float variance2 = 0.4f;
+    public float variance2 = 0.8f;
     public int hp = 10;
 
     // Use this for initialization
@@ -43,9 +45,20 @@ public class PLayerSynthControls : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy"){
-            Hit();
+        
+        if(collision.gameObject.tag == "Enemy")
+        {
+            if(dashInterval +.3 > Time.time){
+                //do nothing
+            }
+            else
+            {
+                Hit();
+            }
+                
+
         }
+
     }
 
     // Update is called once per frame
@@ -199,7 +212,7 @@ public class PLayerSynthControls : MonoBehaviour
         }
         GetComponent<Rigidbody2D>().AddForce(velocity);
 
-        if (Time.time > interval + 0.25f)
+        if (Time.time > shotGunInterval + 0.25f)
         {
          shotgun = true;
         }
@@ -316,7 +329,7 @@ public class PLayerSynthControls : MonoBehaviour
             //}
 
             shotgun = false;
-            interval = Time.time;
+            shotGunInterval = Time.time;
 
         }
         else if (Input.GetMouseButton(0))
@@ -355,6 +368,21 @@ public class PLayerSynthControls : MonoBehaviour
 
 
 
+        if(Time.time > dashInterval + 4f){
+            dash = true;
+        }
+
+        if(dash && Input.GetKey(KeyCode.Space))
+        {
+            velocityRate = 21f;
+            dashInterval = Time.time;
+            dash = false;
+
+        }
+        if (dashInterval + .3 < Time.time)
+        {
+            velocityRate = 7f;
+        }
 
 
     }
