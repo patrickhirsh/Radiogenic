@@ -49,6 +49,8 @@ public class Enemy_05_Controller : MonoBehaviour
             Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
         }
 
+        EnemyManager.enemy05ClusterSpawn(this.gameObject);
+        //Physics2D.CircleCast()
     }
 
     //This is the function we need to call from the bullet object when we hit the correct collider

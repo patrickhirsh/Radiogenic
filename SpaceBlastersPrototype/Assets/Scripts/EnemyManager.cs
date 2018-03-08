@@ -24,9 +24,9 @@ public class EnemyManager : MonoBehaviour
     // Spawns enemies on an interval from the Enemy_05 spawn points
     public static void enemy05ClusterSpawn(GameObject target)
     {
-        int spawnProbability = 50;  // probability of an Enemy_01 spawning any given fixedUpdate during a spawn interval
+        int spawnProbability = 20;  // probability of an Enemy_01 spawning any given fixedUpdate during a spawn interval
         int spawnInterval = 7;      // interval offset (in seconds). Every x seconds, a one second spawn interval occurs
-        double spawnRadius = 1;     // distance from the target the enemies should spawn
+        double spawnRadius = 3;     // distance from the target the enemies should spawn
 
         // check if we're within the spawn interval
         if ((int)Time.time % spawnInterval == 0)
@@ -34,21 +34,23 @@ public class EnemyManager : MonoBehaviour
             // determine if we should spawn an enemy
             if (rnd.Next(0, 100) <= spawnProbability)
             {
-                // determine spawn point
-                double spawnPoint = rnd.Next(1, 3);
+                // set the spawn positions relative to the target enemy
+                Debug.Log(target.transform.rotation.z);
+                double topSpawnAngle = (Math.PI / 2.0) + target.transform.rotation.ToEuler().z;
+                double rightSpawnAngle = ((11.0/6.0)*Math.PI) + target.transform.rotation.ToEuler().z;
+                double leftSpawnAngle = ((7.0/6.0)*Math.PI) + target.transform.rotation.ToEuler().z;
 
-                // determine spawn angle
-                double spawnAngle;
-                if      (spawnPoint == 1) { spawnAngle = 0; }
-                else if (spawnPoint == 2) { spawnAngle = (2 / 3) * Math.PI; }
-                else                      { spawnAngle = (4 / 3) * Math.PI; }
-
-                // set the spawn position relative to the target enemy
-                double spawnX = (Math.Cos(spawnAngle) * spawnRadius) + target.transform.position.x;
-                double spawnY = (Math.Sin(spawnAngle) * spawnRadius) + target.transform.position.y;
+                double spawnX1 = (Math.Cos(topSpawnAngle) * spawnRadius) + target.transform.position.x;
+                double spawnY1 = (Math.Sin(topSpawnAngle) * spawnRadius) + target.transform.position.y;
+                double spawnX2 = (Math.Cos(rightSpawnAngle) * spawnRadius) + target.transform.position.x;
+                double spawnY2 = (Math.Sin(rightSpawnAngle) * spawnRadius) + target.transform.position.y;
+                double spawnX3 = (Math.Cos(leftSpawnAngle) * spawnRadius) + target.transform.position.x;
+                double spawnY3 = (Math.Sin(leftSpawnAngle) * spawnRadius) + target.transform.position.y;
 
                 // spawn enemy
-                var enemy = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX, (float)spawnY, 0), new Quaternion());
+                UnityEngine.Object enemy1 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX1, (float)spawnY1, 0), new Quaternion());
+                UnityEngine.Object enemy2 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX2, (float)spawnY2, 0), new Quaternion());
+                UnityEngine.Object enemy3 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX3, (float)spawnY3, 0), new Quaternion());
             }
         }
     }
