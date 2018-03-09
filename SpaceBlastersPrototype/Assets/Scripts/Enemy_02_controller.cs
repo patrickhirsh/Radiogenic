@@ -54,7 +54,6 @@ public class Enemy_02_controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Hit an Enemy_02");
         if(col.gameObject.tag == "bullet"){
             if(col.otherCollider.GetType() == typeof(CircleCollider2D)){
                 Hit();

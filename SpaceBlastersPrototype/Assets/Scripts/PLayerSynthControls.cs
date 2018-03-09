@@ -110,7 +110,6 @@ public class PLayerSynthControls : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            Debug.Log("A");
             velocity.x = -10f * velocityRate;
             if (Input.GetKey(KeyCode.W))
             {
@@ -277,7 +276,6 @@ public class PLayerSynthControls : MonoBehaviour
             //go6.transform.Rotate(new Vector3(0, 0, Random.Range(-2, 2)));
 
             //Remove debug when not needed
-            Debug.Log(position);
 
 
             //go1.transform. = 1500;

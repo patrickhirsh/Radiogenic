@@ -70,7 +70,6 @@ public class Enemy_04_Controller : MonoBehaviour
 
     void Hit()
     {
-        Debug.Log("Hit func called");
         hp--;
         if (hp == 0)
         {
@@ -83,7 +82,6 @@ public class Enemy_04_Controller : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Hit an Enemy_03");
         if (col.gameObject.tag == "bullet")
         {
             Hit();

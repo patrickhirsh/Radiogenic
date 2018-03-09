@@ -35,7 +35,6 @@ public class EnemyManager : MonoBehaviour
             if (rnd.Next(0, 100) <= spawnProbability)
             {
                 // set the spawn positions relative to the target enemy
-                Debug.Log(target.transform.rotation.z);
                 double topSpawnAngle = (Math.PI / 2.0) + target.transform.rotation.ToEuler().z;
                 double rightSpawnAngle = ((11.0/6.0)*Math.PI) + target.transform.rotation.ToEuler().z;
                 double leftSpawnAngle = ((7.0/6.0)*Math.PI) + target.transform.rotation.ToEuler().z;

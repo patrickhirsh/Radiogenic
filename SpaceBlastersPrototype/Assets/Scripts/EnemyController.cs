@@ -62,7 +62,6 @@ public class EnemyController : MonoBehaviour {
     //This SHOULD run when the destroy method is called on a game object
     void OnDestroy()
     {
-        Debug.Log("OH no we was destroy");
         //Activate destroyed particle effect
 
     }

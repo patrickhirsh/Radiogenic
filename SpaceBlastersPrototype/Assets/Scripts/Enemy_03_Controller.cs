@@ -74,7 +74,6 @@ public class Enemy_03_Controller : MonoBehaviour {
 	}
 
     void Hit(){
-        Debug.Log("Hit func called");
         hp--;
         if(hp == 0){
             Destroy(this.gameObject);
@@ -86,7 +85,6 @@ public class Enemy_03_Controller : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Hit an Enemy_03");
         if(col.gameObject.tag == "bullet"){
             Hit();
             Destroy(col.gameObject);
