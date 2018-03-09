@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb_Controller : MonoBehaviour {
 
+<<<<<<< HEAD
     public float timer = 10f;
     public float radius = 5.0f;
     public float power = 10.0f;
@@ -24,10 +25,18 @@ public class Bomb_Controller : MonoBehaviour {
     }
 
 
+=======
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+>>>>>>> e90afef2dae5819a4a89b64ec701622dc620c202
 	// Update is called once per frame
 	void Update () {
 		
 	}
+<<<<<<< HEAD
 
 
     void explode()
@@ -45,4 +54,6 @@ public class Bomb_Controller : MonoBehaviour {
     }
 
 
+=======
+>>>>>>> e90afef2dae5819a4a89b64ec701622dc620c202
 }
