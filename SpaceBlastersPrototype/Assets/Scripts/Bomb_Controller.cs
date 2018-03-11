@@ -56,6 +56,15 @@ public class Bomb_Controller : MonoBehaviour {
         }
     }
 
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Debug.Log("Should Destroy Here");
+            Destroy(this.gameObject);
+        }
+    }
+
 
 
 }
