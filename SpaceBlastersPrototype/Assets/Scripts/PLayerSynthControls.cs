@@ -36,6 +36,8 @@ public class PLayerSynthControls : MonoBehaviour
 
     void Hit(){
         hp--;
+        ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
+        //ss.shakeDuration += .5f;
         if(hp <= 0)
         {
             int scene = SceneManager.GetActiveScene().buildIndex;
@@ -232,7 +234,8 @@ public class PLayerSynthControls : MonoBehaviour
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
             position = Camera.main.ScreenToWorldPoint(position);
             //Random.Range();
-
+            ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
+            ss.shakeDuration += .01f;
             //Creating our bullet object in the world
             GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
