@@ -20,13 +20,14 @@ public class EnemyManager : MonoBehaviour
 
     #region PUBLIC METHODS
 
-    // This method should be called every fixed update from each Enemy_05 object
+    // This method should be called every fixed update from each Enemy_05 prefab
     // Spawns enemies on an interval from the Enemy_05 spawn points
     public static void enemy05ClusterSpawn(GameObject target)
     {
-        int spawnProbability = 20;  // probability of an Enemy_01 spawning any given fixedUpdate during a spawn interval
-        int spawnInterval = 7;      // interval offset (in seconds). Every x seconds, a one second spawn interval occurs
-        double spawnRadius = 3;     // distance from the target the enemies should spawn
+        int spawnProbability = 30;  // probability of an Enemy_01 spawning any given fixedUpdate during a spawn interval
+        int spawnInterval = 13;     // interval offset (in seconds). Every x seconds, a one second spawn interval occurs
+        double spawnRadius = 2;     // distance from the target the enemies should spawn
+        float spawnThrust = 250;    // thrust at which enemy01's spawn from enemy05
 
         // check if we're within the spawn interval
         if ((int)Time.time % spawnInterval == 0)
@@ -47,9 +48,14 @@ public class EnemyManager : MonoBehaviour
                 double spawnY3 = (Math.Sin(leftSpawnAngle) * spawnRadius) + target.transform.position.y;
 
                 // spawn enemy
-                UnityEngine.Object enemy1 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX1, (float)spawnY1, 0), new Quaternion());
-                UnityEngine.Object enemy2 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX2, (float)spawnY2, 0), new Quaternion());
-                UnityEngine.Object enemy3 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX3, (float)spawnY3, 0), new Quaternion());
+                GameObject enemy1 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX1, (float)spawnY1, 0), new Quaternion()) as GameObject;
+                GameObject enemy2 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX2, (float)spawnY2, 0), new Quaternion()) as GameObject;
+                GameObject enemy3 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX3, (float)spawnY3, 0), new Quaternion()) as GameObject;
+
+                // apply thrust in an outward direction
+                enemy1.GetComponent<Rigidbody2D>().AddForce(new Vector2(spawnThrust * Mathf.Cos((float)topSpawnAngle), spawnThrust * Mathf.Sin((float)topSpawnAngle)));
+                enemy2.GetComponent<Rigidbody2D>().AddForce(new Vector2(spawnThrust * Mathf.Cos((float)rightSpawnAngle), spawnThrust * Mathf.Sin((float)rightSpawnAngle)));
+                enemy3.GetComponent<Rigidbody2D>().AddForce(new Vector2(spawnThrust * Mathf.Cos((float)leftSpawnAngle), spawnThrust * Mathf.Sin((float)leftSpawnAngle)));
             }
         }
     }
