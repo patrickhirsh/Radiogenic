@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 114885261529036094}
   - component: {fileID: 212124825011948506}
   - component: {fileID: 50381714046928598}
-  - component: {fileID: 58830700989067610}
+  - component: {fileID: 68379469159569382}
+  - component: {fileID: 68188984941698782}
   m_Layer: 0
   m_Name: Enemy_03
   m_TagString: Enemy
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1884909242704710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.0685487, y: 3.1769166, z: 3.32}
-  m_LocalScale: {x: 3.0715048, y: 3.0715046, z: 3.0715046}
+  m_LocalScale: {x: 0.24350886, y: 0.2435087, z: 0.2435087}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -54,7 +55,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.5
   m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -63,8 +64,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &58830700989067610
-CircleCollider2D:
+--- !u!68 &68188984941698782
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -76,8 +77,37 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.1
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.9507308, y: 0.21432623}
+  - {x: -0.93255484, y: 0.12629564}
+  - {x: -0.58832616, y: 0.7901604}
+  - {x: -0.03219268, y: 1.4390451}
+  - {x: 0.64597046, y: 0.71006346}
+  - {x: 0.8894942, y: 0.24494357}
+--- !u!68 &68379469159569382
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1884909242704710}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.88949615, y: 0.15309058}
+  - {x: -1.1897477, y: -0.6889522}
+  - {x: -1.2889644, y: -1.4390451}
+  - {x: 0.020476818, y: -0.8980961}
+  - {x: 0.45926464, y: -1.082175}
+  - {x: 1.3148929, y: -1.4118154}
+  - {x: 1.1820016, y: -0.55947936}
+  - {x: 0.82826006, y: 0.36741585}
 --- !u!114 &114885261529036094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -95,6 +125,7 @@ MonoBehaviour:
   dragVal: 0.5
   hp: 5
   periodzint: 5
+  rotationSpeed: 1.5
 --- !u!212 &212124825011948506
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.01995028, g: 0.9044118, b: 0.79461664, a: 1}
+  m_Sprite: {fileID: 21300000, guid: ae3b47597d310404f9da25741541f65d, type: 3}
+  m_Color: {r: 1, g: 0.7941176, b: 0.7941176, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

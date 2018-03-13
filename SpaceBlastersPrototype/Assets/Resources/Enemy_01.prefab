@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4412189471493500}
+  - component: {fileID: 212036260144961870}
   - component: {fileID: 114567125800261640}
   - component: {fileID: 50039503090536624}
   - component: {fileID: 58994323802045616}
-  - component: {fileID: 212036260144961870}
   m_Layer: 0
   m_Name: Enemy_01
   m_TagString: Enemy
@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1933442627594574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.66, y: -0.1058, z: 3.32}
+  m_LocalPosition: {x: 2.8736055, y: 1.8415365, z: 3.32}
   m_LocalScale: {x: 3.0715048, y: 3.0715046, z: 3.0715046}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   speed: 3
   hitbox: 0.7
   dragVal: 0.5
-  hp: 5
+  hp: 3
 --- !u!212 &212036260144961870
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -129,7 +129,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.27339372, g: 0.44852942, b: 0.21766868, a: 1}
+  m_Color: {r: 0.89705884, g: 0.5936419, b: 0.13851647, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

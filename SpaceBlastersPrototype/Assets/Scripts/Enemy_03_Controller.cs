@@ -15,6 +15,7 @@ public class Enemy_03_Controller : MonoBehaviour {
     public float periodzint;
     bool charge1 = false;
     float charge2 = 0;
+    public float rotationSpeed;
 
     void Start()
     {
@@ -28,7 +29,13 @@ public class Enemy_03_Controller : MonoBehaviour {
 
     void FixedUpdate()
     {
-        
+
+        Vector2 rotDirec = target.position - transform.position;
+        float angle = Mathf.Atan2(rotDirec.y, rotDirec.x) * Mathf.Rad2Deg;
+        angle += -90;
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+
         if(periodz < Time.time)
         {
             periodz += periodzint;
