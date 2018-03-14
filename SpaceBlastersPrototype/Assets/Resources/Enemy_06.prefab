@@ -83,9 +83,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 7
+  m_Mass: 15
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 4
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -120,9 +120,9 @@ EdgeCollider2D:
   - {x: -4.9692526, y: 3.1141531}
   - {x: -4.9813986, y: 1.2561305}
   - {x: -4.519804, y: 0.25780675}
-  - {x: -2.533012, y: -1.1220502}
-  - {x: -0.002385775, y: -1.7323333}
-  - {x: 2.479476, y: -1.0712384}
+  - {x: -3.596459, y: -0.5607859}
+  - {x: -0.061467484, y: -1.1710706}
+  - {x: 3.3656824, y: -0.39181387}
   - {x: 4.449591, y: 0.008551279}
   - {x: 4.9586363, y: 1.166911}
   - {x: 5.0354943, y: 2.7583961}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 8
+  speed: 20
   hitbox: 10
   BombSpawnPoint: {fileID: 1433699099601202}
   dragVal: 0.5
