@@ -21,6 +21,7 @@ public class PLayerSynthControls : MonoBehaviour
     public float variance = 0.2f;
     public float variance2 = 1f;
     public int hp = 10;
+    public GameObject DamageSprite;
 
     // Use this for initialization
     void Start()
@@ -34,7 +35,7 @@ public class PLayerSynthControls : MonoBehaviour
 
     }
 
-    void Hit(){
+    void hit(){
         hp--;
         ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
         //ss.shakeDuration += .5f;
@@ -55,7 +56,11 @@ public class PLayerSynthControls : MonoBehaviour
             }
             else
             {
-                Hit();
+                hit();
+                DamageSprite.SetActive(true);
+                if (collision.gameObject.name == "Enemy_01" || collision.gameObject.name == "Enemy_03" || collision.gameObject.name == "Enemy_04"){
+                    Destroy(collision.gameObject);
+                }
             }
                 
 

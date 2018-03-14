@@ -80,7 +80,7 @@ public class Enemy_03_Controller : MonoBehaviour {
 		
 	}
 
-    void Hit(){
+    void hit(){
         hp--;
         if(hp == 0){
             Destroy(this.gameObject);
@@ -93,7 +93,7 @@ public class Enemy_03_Controller : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "bullet"){
-            Hit();
+            hit();
             Destroy(col.gameObject);
         }
     }

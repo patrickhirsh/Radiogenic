@@ -8,11 +8,14 @@ public class Bomb_Controller : MonoBehaviour {
     public float timer = 10f;
     public float radius = 5.0f;
     public float power = 10.0f;
-    public Camera camera;
+    public Camera c;
 
 	// Use this for initialization
 	void Start () {
-        camera = Camera.main;
+        if (Camera.main != null)
+        {
+            c = Camera.main;
+        }
 	}
 	
     void FixedUpdate()
@@ -28,7 +31,10 @@ public class Bomb_Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		
+        if (Camera.main != null)
+        {
+            c = Camera.main;
+        }
 	}
 
     void OnDestroy()
@@ -38,8 +44,11 @@ public class Bomb_Controller : MonoBehaviour {
 
     void explode()
     {
-        ScreenShake ss = camera.GetComponent<ScreenShake>();
-        ss.shakeDuration += .3f;
+        if (c != null)
+        {
+            ScreenShake ss = c.GetComponent<ScreenShake>();
+            ss.shakeDuration += .3f;
+        }
         //do the exploding
         Vector3 explosionPos = transform.position;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, radius);
@@ -67,6 +76,10 @@ public class Bomb_Controller : MonoBehaviour {
             Debug.Log("Should Destroy Here");
             Destroy(this.gameObject);
         }
+    }
+
+    void hit(){
+        
     }
 
 

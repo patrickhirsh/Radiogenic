@@ -68,7 +68,7 @@ public class Enemy_04_Controller : MonoBehaviour
 
     }
 
-    void Hit()
+    void hit()
     {
         hp--;
         if (hp == 0)
@@ -84,7 +84,7 @@ public class Enemy_04_Controller : MonoBehaviour
     {
         if (col.gameObject.tag == "bullet")
         {
-            Hit();
+            hit();
             Destroy(col.gameObject);
         }
     }

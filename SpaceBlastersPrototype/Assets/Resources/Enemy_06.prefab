@@ -36,8 +36,8 @@ GameObject:
   - component: {fileID: 4870630339524888}
   - component: {fileID: 212086285406418232}
   - component: {fileID: 114355741907014626}
-  - component: {fileID: 60303599801102258}
   - component: {fileID: 50668901440143136}
+  - component: {fileID: 68395998003247790}
   m_Layer: 0
   m_Name: Enemy_06
   m_TagString: Enemy
@@ -65,8 +65,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1539247486207468}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.29, y: 1.46, z: 0}
-  m_LocalScale: {x: 4.6989384, y: 12.510934, z: 4.69894}
+  m_LocalPosition: {x: 1.0532746, y: 2.985455, z: 0}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.1}
   m_Children:
   - {fileID: 4378762976448184}
   m_Father: {fileID: 0}
@@ -92,8 +92,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60303599801102258
-PolygonCollider2D:
+--- !u!68 &68395998003247790
+EdgeCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -105,25 +105,29 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.049999997, y: 0.049999997, z: 0.049999997, w: 0.049999997}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_EdgeRadius: 0
   m_Points:
-    m_Paths:
-    - - {x: -0.054764383, y: 0.06833458}
-      - {x: -0.062373288, y: -0.057075128}
-      - {x: -0.13047132, y: -0.0858327}
-      - {x: -0.00628092, y: -0.061043613}
-      - {x: 0.15653063, y: -0.09020725}
-      - {x: 0.06641154, y: -0.060000006}
-      - {x: 0.058646776, y: 0.055418175}
-      - {x: 0.043352805, y: 0.069063656}
+  - {x: 5.6806526, y: -0.97215486}
+  - {x: 5.318843, y: -1.2134185}
+  - {x: 3.3692222, y: -2.1829364}
+  - {x: 1.4122, y: -2.8677158}
+  - {x: 0.38571432, y: -3.7533422}
+  - {x: -0.01348098, y: -4.758733}
+  - {x: -0.37355182, y: -3.9077706}
+  - {x: -1.363538, y: -3.0074244}
+  - {x: -5.7089014, y: -0.968453}
+  - {x: -6.109271, y: 4.6786494}
+  - {x: -4.9692526, y: 3.1141531}
+  - {x: -4.9813986, y: 1.2561305}
+  - {x: -4.519804, y: 0.25780675}
+  - {x: -2.533012, y: -1.1220502}
+  - {x: -0.002385775, y: -1.7323333}
+  - {x: 2.479476, y: -1.0712384}
+  - {x: 4.449591, y: 0.008551279}
+  - {x: 4.9586363, y: 1.166911}
+  - {x: 5.0354943, y: 2.7583961}
+  - {x: 6.007032, y: 4.7593303}
+  - {x: 5.6973357, y: -0.9627548}
 --- !u!114 &114355741907014626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -140,7 +144,7 @@ MonoBehaviour:
   hitbox: 10
   BombSpawnPoint: {fileID: 1433699099601202}
   dragVal: 0.5
-  hp: 3
+  hp: 15
   DragVal: 0.5
   periodz1: 0
   periodz2: 10
@@ -181,7 +185,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ab28a48fe34d44b4ba4f855b5d24112, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

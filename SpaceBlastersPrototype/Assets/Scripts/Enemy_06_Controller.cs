@@ -40,7 +40,7 @@ public class Enemy_06_Controller : MonoBehaviour
 
         Vector2 rotvec = target.position - transform.position;
         float angle = Mathf.Atan2(rotvec.y, rotvec.x) * Mathf.Rad2Deg;
-        angle += +90;
+        angle += -90;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
         if (Vector3.Distance(transform.position, target.position) > hitbox)
@@ -115,7 +115,7 @@ public class Enemy_06_Controller : MonoBehaviour
         bombrb.velocity = this.rb.velocity;
     }
 
-    void Hit()
+    void hit()
     {
         //we got hit
         hp--;
@@ -130,7 +130,7 @@ public class Enemy_06_Controller : MonoBehaviour
     {
         if (col.gameObject.tag == "bullet")
         {
-            Hit();
+            hit();
             Destroy(col.gameObject);
 
         }

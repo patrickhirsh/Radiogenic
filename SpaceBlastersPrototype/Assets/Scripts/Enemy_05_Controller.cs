@@ -54,7 +54,7 @@ public class Enemy_05_Controller : MonoBehaviour
     }
 
     //This is the function we need to call from the bullet object when we hit the correct collider
-    void Hit()
+    void hit()
     {
         if (hp > 1)
         {
@@ -71,7 +71,7 @@ public class Enemy_05_Controller : MonoBehaviour
     {
         if (col.gameObject.tag == "bullet")
         {
-            Hit();
+            hit();
             Destroy(col.gameObject);
 
         }

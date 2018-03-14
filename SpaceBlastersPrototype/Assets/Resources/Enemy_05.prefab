@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 68507290860072674}
   m_Layer: 0
   m_Name: 05_Chasis
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,6 +38,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4904138578455166}
+  - component: {fileID: 68610990017452170}
+  - component: {fileID: 68893341156324122}
+  - component: {fileID: 68541263207809590}
   m_Layer: 0
   m_Name: Enemy_05
   m_TagString: Enemy
@@ -114,6 +117,73 @@ EdgeCollider2D:
   - {x: 0.037715193, y: -0.7932597}
   - {x: -0.7665821, y: -0.33021054}
   - {x: -0.7944143, y: 0.5586038}
+--- !u!68 &68541263207809590
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396591555933480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -6.2652445, y: 4.5773516}
+  - {x: -7.6749573, y: 3.7374194}
+  - {x: -7.6627398, y: 2.1551569}
+  - {x: -7.152235, y: 2.389729}
+  - {x: -7.186616, y: 3.487593}
+  - {x: -6.2427654, y: 4.077196}
+  - {x: -6.215561, y: 4.561513}
+--- !u!68 &68610990017452170
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396591555933480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -4.934805, y: 4.0388384}
+  - {x: -4.0546727, y: 3.49524}
+  - {x: -4.0442834, y: 2.4146204}
+  - {x: -3.556623, y: 2.13324}
+  - {x: -3.554678, y: 3.7379057}
+  - {x: -4.9515343, y: 4.6043777}
+  - {x: -4.9484735, y: 4.0705166}
+--- !u!68 &68893341156324122
+EdgeCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396591555933480}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: -4.142527, y: 1.0517154}
+  - {x: -5.6047263, y: 0.2981013}
+  - {x: -6.553999, y: 0.8190441}
+  - {x: -7.008257, y: 1.0777509}
+  - {x: -6.624422, y: 1.3958707}
+  - {x: -5.6065564, y: 0.80805707}
+  - {x: -4.563311, y: 1.3510258}
+  - {x: -4.1504292, y: 1.0584185}
 --- !u!114 &114182920727496496
 MonoBehaviour:
   m_ObjectHideFlags: 1

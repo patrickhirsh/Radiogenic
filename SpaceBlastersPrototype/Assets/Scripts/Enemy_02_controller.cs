@@ -44,7 +44,7 @@ public class Enemy_02_controller : MonoBehaviour {
         }
     }
 
-    void Hit(){
+    void hit(){
         //we got hit
         hp--;
         if(hp == 0.0f){
@@ -56,7 +56,7 @@ public class Enemy_02_controller : MonoBehaviour {
     {
         if(col.gameObject.tag == "bullet"){
             if(col.otherCollider.GetType() == typeof(CircleCollider2D)){
-                Hit();
+                hit();
             }
             else{
                 Destroy(col.gameObject);
@@ -64,7 +64,7 @@ public class Enemy_02_controller : MonoBehaviour {
         }
         else if (col.gameObject.tag == "player"){
             //use 
-            col.gameObject.SendMessage("Hit");
+            col.gameObject.SendMessage("hit");
         }
         else{
             //probs hit another enmey zzzzzz
