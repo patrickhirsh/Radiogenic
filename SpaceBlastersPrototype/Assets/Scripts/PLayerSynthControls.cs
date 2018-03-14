@@ -19,7 +19,7 @@ public class PLayerSynthControls : MonoBehaviour
     public int thrust = 1000;
     public int thrust2 = 1200;
     public float variance = 0.2f;
-    public float variance2 = 0.8f;
+    public float variance2 = 1f;
     public int hp = 10;
 
     // Use this for initialization
@@ -36,6 +36,8 @@ public class PLayerSynthControls : MonoBehaviour
 
     void Hit(){
         hp--;
+        ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
+        //ss.shakeDuration += .5f;
         if(hp <= 0)
         {
             int scene = SceneManager.GetActiveScene().buildIndex;
@@ -232,7 +234,8 @@ public class PLayerSynthControls : MonoBehaviour
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
             position = Camera.main.ScreenToWorldPoint(position);
             //Random.Range();
-
+            ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
+            ss.shakeDuration += .01f;
             //Creating our bullet object in the world
             GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
@@ -246,6 +249,12 @@ public class PLayerSynthControls : MonoBehaviour
             GameObject go10 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             GameObject go11 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             GameObject go12 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go13 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go14 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go15 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go16 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
 
 
 
@@ -267,6 +276,12 @@ public class PLayerSynthControls : MonoBehaviour
             go10.transform.LookAt(position);
             go11.transform.LookAt(position);
             go12.transform.LookAt(position);
+            go13.transform.LookAt(position);
+            go14.transform.LookAt(position);
+            go15.transform.LookAt(position);
+            go16.transform.LookAt(position);
+            go17.transform.LookAt(position);
+            go18.transform.LookAt(position);
 
             //go1.transform.Rotate(new Vector3(0, 0, Random.Range(-2, 2)));
             //go2.transform.Rotate(new Vector3(0, 0, Random.Range(-2, 2)));
@@ -293,6 +308,13 @@ public class PLayerSynthControls : MonoBehaviour
             float vari10 = Random.Range(-variance2, variance2);
             float vari11 = Random.Range(-variance2, variance2);
             float vari12 = Random.Range(-variance2, variance2);
+            float vari13 = Random.Range(-variance2, variance2);
+            float vari14 = Random.Range(-variance2, variance2);
+            float vari15 = Random.Range(-variance2, variance2);
+            float vari16 = Random.Range(-variance2, variance2);
+            float vari17 = Random.Range(-variance2, variance2);
+            float vari18 = Random.Range(-variance2, variance2);
+
 
             //Add forward force to the bullet
             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));
@@ -307,6 +329,12 @@ public class PLayerSynthControls : MonoBehaviour
             go10.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari10), thrust2 * Mathf.Sin(angleR + vari10)));
             go11.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari11), thrust2 * Mathf.Sin(angleR + vari11)));
             go12.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari12), thrust2 * Mathf.Sin(angleR + vari12)));
+            go13.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari13), thrust2 * Mathf.Sin(angleR + vari13)));
+            go14.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari14), thrust2 * Mathf.Sin(angleR + vari14)));
+            go15.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari15), thrust2 * Mathf.Sin(angleR + vari15)));
+            go16.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari16), thrust2 * Mathf.Sin(angleR + vari16)));
+            go17.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari17), thrust2 * Mathf.Sin(angleR + vari17)));
+            go18.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari18), thrust2 * Mathf.Sin(angleR + vari18)));
             //After a certain amount of seconds, destroy bullet
             Destroy(go1, 1.0f);
             Destroy(go2, 1.0f);
@@ -320,6 +348,12 @@ public class PLayerSynthControls : MonoBehaviour
             Destroy(go10, 1.0f);
             Destroy(go11, 1.0f);
             Destroy(go12, 1.0f);
+            Destroy(go13, 1.0f);
+            Destroy(go14, 1.0f);
+            Destroy(go15, 1.0f);
+            Destroy(go16, 1.0f);
+            Destroy(go17, 1.0f);
+            Destroy(go18, 1.0f);
 
 
 
