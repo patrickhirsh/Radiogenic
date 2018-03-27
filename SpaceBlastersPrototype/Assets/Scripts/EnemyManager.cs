@@ -70,7 +70,7 @@ public class EnemyManager : MonoBehaviour
 
     // scales the "percentage" our random spawn system uses.
     // useful for uniformly changing the spawn rate for all enemies. 1 = 1*100 = out of 100%
-    float spawnProbabilityFactor = 1f;
+    float spawnProbabilityFactor = 2f;
 
     // spawn probability calculation methods
     double enemy01SpawnProbability(double time) { return Math.Sqrt(time); }
@@ -99,10 +99,10 @@ public class EnemyManager : MonoBehaviour
     // FixedUpdate is called 30 times per second
     void FixedUpdate()
     {
-        TrySpawnEnemy("Enemy_01", 1, 100, enemy01SpawnProbability);
-        TrySpawnEnemy("Enemy_02", 1, 30, enemy02SpawnProbability);
-        TrySpawnEnemy("Enemy_03", 5, 80, enemy03SpawnProbability);
-        TrySpawnEnemy("Enemy_04", 1, 50, enemy04SpawnProbability);
+        TrySpawnEnemy("Enemy_01", 1, 20, enemy01SpawnProbability);
+        TrySpawnEnemy("Enemy_02", 10, 4, enemy02SpawnProbability);
+        TrySpawnEnemy("Enemy_03", 5, 10, enemy03SpawnProbability);
+        TrySpawnEnemy("Enemy_04", 1, 12, enemy04SpawnProbability);
     }
 
     // An abstract enemy spawning method. This should be called once for each enemy every fixed update
