@@ -27,7 +27,7 @@ public class EnemyManager : MonoBehaviour
         int spawnProbability = 30;  // probability of an Enemy_01 spawning any given fixedUpdate during a spawn interval
         int spawnInterval = 13;     // interval offset (in seconds). Every x seconds, a one second spawn interval occurs
         double spawnRadius = 2;     // distance from the target the enemies should spawn
-        float spawnThrust = 250;    // thrust at which enemy01's spawn from enemy05
+        float spawnThrust = 2000;    // thrust at which enemy01's spawn from enemy05
 
         // check if we're within the spawn interval
         if ((int)Time.time % spawnInterval == 0)
@@ -77,6 +77,8 @@ public class EnemyManager : MonoBehaviour
     double enemy02SpawnProbability(double time) { return time / 25; }
     double enemy03SpawnProbability(double time) { return time / 18; }
     double enemy04SpawnProbability(double time) { return time / 50; }
+    double enemy05SpawnProbability(double time) { return time / 50; }
+    double enemy06SpawnProbability(double time) { return time / 50; }
 
     // Singleton pattern
     void Awake()
@@ -103,6 +105,8 @@ public class EnemyManager : MonoBehaviour
         TrySpawnEnemy("Enemy_02", 10, 4, enemy02SpawnProbability);
         TrySpawnEnemy("Enemy_03", 5, 10, enemy03SpawnProbability);
         TrySpawnEnemy("Enemy_04", 1, 12, enemy04SpawnProbability);
+        TrySpawnEnemy("Enemy_05", 14, 3, enemy05SpawnProbability);
+        TrySpawnEnemy("Enemy_06", 10, 4, enemy06SpawnProbability);
     }
 
     // An abstract enemy spawning method. This should be called once for each enemy every fixed update
