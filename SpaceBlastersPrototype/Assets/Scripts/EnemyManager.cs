@@ -10,12 +10,12 @@ public class EnemyManager : MonoBehaviour
     // used for generating random probability values
     public static System.Random rnd;
 
-    static int maxEnemy01 = 900;
-    static int maxEnemy02 = 75;
-    static int maxEnemy03 = 150;
-    static int maxEnemy04 = 300;
-    static int maxEnemy05 = 60;
-    static int maxEnemy06 = 50;
+    static int maxEnemy01 = 750;
+    static int maxEnemy02 = 50;
+    static int maxEnemy03 = 100;
+    static int maxEnemy04 = 150;
+    static int maxEnemy05 = 30;
+    static int maxEnemy06 = 5;
 
     static Stack<GameObject> enemy01Cache = new Stack<GameObject>();
     static Stack<GameObject> enemy02Cache = new Stack<GameObject>();
