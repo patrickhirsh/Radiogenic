@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour {
     public Transform target;
     public float moveSpeed = 0.125f;
     public float distance;
+    public float leadDist;
     public float triggerDistance;
 
 
@@ -18,11 +19,12 @@ public class CameraFollow : MonoBehaviour {
 	void FixedUpdate () {
         //if(target.position.x > GameObject.Find("MainCamera").transform.position.x + 5)
         //transform.position = new Vector2(target.position.x, target.position.y);
+        Vector2 targvelo = target.gameObject.GetComponent<Rigidbody2D>().velocity;
         distance = Vector2.Distance(transform.position, target.position);
         //print(distance);
-        if(distance > triggerDistance){
-            transform.position = Vector3.Lerp(transform.position, target.position, moveSpeed);
-        }
+     
+        transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x + (targvelo.x * leadDist), target.position.y + (targvelo.y * leadDist), target.position.z), moveSpeed);
+        
 
 	}
 }
