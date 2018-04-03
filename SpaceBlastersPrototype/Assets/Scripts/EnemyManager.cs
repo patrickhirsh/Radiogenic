@@ -10,12 +10,25 @@ public class EnemyManager : MonoBehaviour
     // used for generating random probability values
     public static System.Random rnd;
 
-    // running count of enemies in the scene
-    public static int Enemy01Count;
-    public static int Enemy02Count;
-    public static int Enemy03Count;
-    public static int Enemy04Count;
-    public static int Enemy05Count;
+    static int maxEnemy01 = 900;
+    static int maxEnemy02 = 75;
+    static int maxEnemy03 = 150;
+    static int maxEnemy04 = 300;
+    static int maxEnemy05 = 60;
+    static int maxEnemy06 = 50;
+
+    static Stack<GameObject> enemy01Cache = new Stack<GameObject>();
+    static Stack<GameObject> enemy02Cache = new Stack<GameObject>();
+    static Stack<GameObject> enemy03Cache = new Stack<GameObject>();
+    static Stack<GameObject> enemy04Cache = new Stack<GameObject>();
+    static Stack<GameObject> enemy05Cache = new Stack<GameObject>();
+    static Stack<GameObject> enemy06Cache = new Stack<GameObject>();
+
+    public static List<Stack<GameObject>> enemyCaches = new List<Stack<GameObject>>() { enemy01Cache, enemy02Cache, enemy03Cache, enemy04Cache, enemy05Cache, enemy06Cache };
+    static List<int> enemyMaxes = new List<int>() { maxEnemy01, maxEnemy02, maxEnemy03, maxEnemy04, maxEnemy05, maxEnemy06 };
+    static List<string> enemyTypes = new List<string>() { "Enemy_01", "Enemy_02", "Enemy_03", "Enemy_04", "Enemy_05", "Enemy_06" };
+
+
 
 
     #region PUBLIC METHODS
@@ -33,7 +46,7 @@ public class EnemyManager : MonoBehaviour
         if ((int)Time.time % spawnInterval == 0)
         {
             // determine if we should spawn an enemy
-            if (rnd.Next(0, 100) <= spawnProbability)
+            if ((rnd.Next(0, 100) <= spawnProbability) && (enemyCaches[0].Count > 0))
             {
                 // set the spawn positions relative to the target enemy
                 double topSpawnAngle = (Math.PI / 2.0) + target.transform.rotation.ToEuler().z;
@@ -47,10 +60,16 @@ public class EnemyManager : MonoBehaviour
                 double spawnX3 = (Math.Cos(leftSpawnAngle) * spawnRadius) + target.transform.position.x;
                 double spawnY3 = (Math.Sin(leftSpawnAngle) * spawnRadius) + target.transform.position.y;
 
-                // spawn enemy
-                GameObject enemy1 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX1, (float)spawnY1, 0), new Quaternion()) as GameObject;
-                GameObject enemy2 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX2, (float)spawnY2, 0), new Quaternion()) as GameObject;
-                GameObject enemy3 = Instantiate(Resources.Load("Enemy_01"), new Vector3((float)spawnX3, (float)spawnY3, 0), new Quaternion()) as GameObject;
+                // activate enemies
+                var enemy1 = enemyCaches[0].Pop();
+                var enemy2 = enemyCaches[0].Pop();
+                var enemy3 = enemyCaches[0].Pop();
+                enemy1.SetActive(true);
+                enemy2.SetActive(true);
+                enemy3.SetActive(true);
+                enemy1.transform.position = new Vector3((float)spawnX1, (float)spawnY1, 0);
+                enemy2.transform.position = new Vector3((float)spawnX2, (float)spawnY2, 0);
+                enemy3.transform.position = new Vector3((float)spawnX3, (float)spawnY3, 0);
 
                 // apply thrust in an outward direction
                 enemy1.GetComponent<Rigidbody2D>().AddForce(new Vector2(spawnThrust * Mathf.Cos((float)topSpawnAngle), spawnThrust * Mathf.Sin((float)topSpawnAngle)));
@@ -61,7 +80,6 @@ public class EnemyManager : MonoBehaviour
     }
 
     #endregion
-
 
     #region INTERNAL SPAWN MANAGEMENT SYSTEM
 
@@ -96,25 +114,42 @@ public class EnemyManager : MonoBehaviour
     void Start ()
     {
         rnd = new System.Random();
-	}
+        generateEnemyPool();
+
+    }
 
     // FixedUpdate is called 30 times per second
     void FixedUpdate()
     {
-        TrySpawnEnemy("Enemy_01", 1, 20, enemy01SpawnProbability);
-        TrySpawnEnemy("Enemy_02", 10, 4, enemy02SpawnProbability);
-        TrySpawnEnemy("Enemy_03", 5, 10, enemy03SpawnProbability);
-        TrySpawnEnemy("Enemy_04", 1, 12, enemy04SpawnProbability);
-        TrySpawnEnemy("Enemy_05", 14, 3, enemy05SpawnProbability);
-        TrySpawnEnemy("Enemy_06", 10, 4, enemy06SpawnProbability);
+        TrySpawnEnemy(0, 1, 20, enemy01SpawnProbability);
+        TrySpawnEnemy(1, 10, 4, enemy02SpawnProbability);
+        TrySpawnEnemy(2, 5, 10, enemy03SpawnProbability);
+        TrySpawnEnemy(3, 1, 12, enemy04SpawnProbability);
+        TrySpawnEnemy(4, 14, 3, enemy05SpawnProbability);
+        TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
+
+        Debug.Log(enemyCaches[0].Count);
+    }
+
+    void generateEnemyPool()
+    {
+        // for each enemy cache, populate it with (inactive) enemies of that type.
+        // the number of enemies added to each cache is dependent on the maxEnemy variables.
+        for (int i = 0; i < enemyCaches.Count; i++)
+            for (int j = 0; j < enemyMaxes[i]; j++)
+            {
+                GameObject enemy = Instantiate(Resources.Load(enemyTypes[i]), new Vector3(-300, 300, 0), new Quaternion()) as GameObject;
+                enemy.SetActive(false);
+                enemyCaches[i].Push(enemy);
+            }        
     }
 
     // An abstract enemy spawning method. This should be called once for each enemy every fixed update
     // Each time this is called, the system tries to spawn an enemy based on the given parameters.
-    void TrySpawnEnemy(string enemyType, int spawnInterval, int probabilityCutoff, Func<double, double> calculateSpawnProbability)
+    void TrySpawnEnemy(int enemyType, int spawnInterval, int probabilityCutoff, Func<double, double> calculateSpawnProbability)
     {
         // check if we're within the spawn interval
-        if ((int)Time.time % spawnInterval == 0)
+        if (((int)Time.time % spawnInterval == 0) && (enemyCaches[enemyType].Count > 0))
         {
             // determine the spawn probability
             double spawnProbability = calculateSpawnProbability((double)Time.time);
@@ -129,8 +164,10 @@ public class EnemyManager : MonoBehaviour
                 double spawnX = Math.Cos(spawnAngle) * spawnRadius;
                 double spawnY = Math.Sin(spawnAngle) * spawnRadius;
 
-                // spawn enemy
-                var enemy = Instantiate(Resources.Load(enemyType), new Vector3((float)spawnX, (float)spawnY, 0), new Quaternion());
+                // activate enemy
+                var enemy = enemyCaches[enemyType].Pop();
+                enemy.SetActive(true);
+                enemy.transform.position = new Vector3((float)spawnX, (float)spawnY, 0);
             }
         }
     }

@@ -48,7 +48,8 @@ public class Enemy_02_controller : MonoBehaviour {
         //we got hit
         hp--;
         if(hp == 0.0f){
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            EnemyManager.enemyCaches[1].Push(this.gameObject);
         }
     }
 

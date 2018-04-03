@@ -73,7 +73,8 @@ public class Enemy_04_Controller : MonoBehaviour
         hp--;
         if (hp == 0)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            EnemyManager.enemyCaches[3].Push(this.gameObject);
         }
 
     }

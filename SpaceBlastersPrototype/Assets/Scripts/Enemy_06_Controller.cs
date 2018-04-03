@@ -121,7 +121,8 @@ public class Enemy_06_Controller : MonoBehaviour
         hp--;
         if (hp == 0.0f)
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            EnemyManager.enemyCaches[5].Push(this.gameObject);
         }
     }
 

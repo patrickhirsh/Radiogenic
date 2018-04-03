@@ -44,7 +44,8 @@ public class EnemyController : MonoBehaviour {
         }
         else
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            EnemyManager.enemyCaches[0].Push(this.gameObject);
         }
     }
 
@@ -58,6 +59,7 @@ public class EnemyController : MonoBehaviour {
             
         }
     }
+
 
     //This SHOULD run when the destroy method is called on a game object
     void OnDestroy()
