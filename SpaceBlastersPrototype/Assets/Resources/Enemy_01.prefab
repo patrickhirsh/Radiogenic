@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114567125800261640}
   - component: {fileID: 50039503090536624}
   - component: {fileID: 58994323802045616}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_01
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 3
+  speed: 5
   hitbox: 0.7
   dragVal: 0.5
   hp: 3

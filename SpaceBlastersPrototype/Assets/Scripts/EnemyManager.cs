@@ -84,7 +84,7 @@ public class EnemyManager : MonoBehaviour
     #region INTERNAL SPAWN MANAGEMENT SYSTEM
 
     // determines the distance from the origin at which enemies spawn
-    int spawnRadius = 50;
+    int spawnRadius = 130;
 
     // scales the "percentage" our random spawn system uses.
     // useful for uniformly changing the spawn rate for all enemies. 1 = 1*100 = out of 100%
@@ -159,10 +159,20 @@ public class EnemyManager : MonoBehaviour
             // determine if we should spawn an enemy
             if (rnd.Next(0, (int)(100 * spawnProbabilityFactor)) <= spawnProbability)
             {
-                // determine spawn point
-                double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
-                double spawnX = Math.Cos(spawnAngle) * spawnRadius;
-                double spawnY = Math.Sin(spawnAngle) * spawnRadius;
+                int finalRadius = spawnRadius;
+
+                // spawn enemies closer for the first 15 seconds to apply immediate pressure
+                if (Time.time < 10)
+                    finalRadius = spawnRadius / 3;
+
+                // enemy 5's should spawn in the playable area
+                if (enemyType == 4)
+                    finalRadius = spawnRadius / 3;
+
+                    // determine spawn point
+                    double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
+                double spawnX = Math.Cos(spawnAngle) * finalRadius;
+                double spawnY = Math.Sin(spawnAngle) * finalRadius;
 
                 // activate enemy
                 var enemy = enemyCaches[enemyType].Pop();

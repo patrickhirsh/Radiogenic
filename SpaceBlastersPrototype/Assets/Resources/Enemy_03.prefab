@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50381714046928598}
   - component: {fileID: 68379469159569382}
   - component: {fileID: 68188984941698782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_03
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -120,10 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 3
+  speed: 5
   hitbox: 0.7
   dragVal: 0.5
-  hp: 5
+  hp: 2
   periodzint: 5
   rotationSpeed: 1.5
 --- !u!212 &212124825011948506

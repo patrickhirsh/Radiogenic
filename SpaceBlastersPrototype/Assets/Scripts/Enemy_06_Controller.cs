@@ -119,7 +119,7 @@ public class Enemy_06_Controller : MonoBehaviour
     {
         //we got hit
         hp--;
-        if (hp == 0.0f)
+        if (hp <= 0.0f)
         {
             this.gameObject.SetActive(false);
             EnemyManager.enemyCaches[5].Push(this.gameObject);

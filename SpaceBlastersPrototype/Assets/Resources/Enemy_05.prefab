@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114182920727496496}
   - component: {fileID: 50004328726070342}
   - component: {fileID: 68507290860072674}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 05_Chasis
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 68541263207809590}
   - component: {fileID: 50376183833142222}
   - component: {fileID: 60935540982721666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy_05
   m_TagString: Enemy
   m_Icon: {fileID: 0}

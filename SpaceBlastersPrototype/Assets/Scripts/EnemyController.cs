@@ -38,11 +38,8 @@ public class EnemyController : MonoBehaviour {
     //This is the function we need to call from the bullet object when we hit the correct collider
     void hit()
     {
-        if(hp > 1)
-        {
-            hp--;
-        }
-        else
+        hp--;
+        if (hp <= 0)
         {
             this.gameObject.SetActive(false);
             EnemyManager.enemyCaches[0].Push(this.gameObject);
@@ -56,7 +53,6 @@ public class EnemyController : MonoBehaviour {
         {
             hit();
             Destroy(col.gameObject);
-            
         }
     }
 

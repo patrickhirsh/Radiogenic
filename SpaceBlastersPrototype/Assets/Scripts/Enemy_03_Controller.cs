@@ -82,7 +82,7 @@ public class Enemy_03_Controller : MonoBehaviour {
 
     void hit(){
         hp--;
-        if(hp == 0){
+        if(hp <= 0){
             this.gameObject.SetActive(false);
             EnemyManager.enemyCaches[2].Push(this.gameObject);
         }
