@@ -304,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2D Explosion Force\script\ExplosionForce2D.cs" />
+    <Compile Include="Assets\Scripts\blackHoleScript.cs" />
     <Compile Include="Assets\Scripts\Bomb_Controller.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />

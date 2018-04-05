@@ -442,6 +442,18 @@ Prefab:
       propertyPath: hp
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114871583366465130, guid: 9f274938ad9c6bb4cbbfbe6d5d8f6ecb,
+        type: 2}
+      propertyPath: reflectiveBullet
+      value: 
+      objectReference: {fileID: 1934080228879556, guid: b5a8f1b3b57504f9f98bc4a4dacef489,
+        type: 2}
+    - target: {fileID: 114871583366465130, guid: 9f274938ad9c6bb4cbbfbe6d5d8f6ecb,
+        type: 2}
+      propertyPath: blackHole
+      value: 
+      objectReference: {fileID: 1767405990193416, guid: 81ae0f5f947e14953977161be2167c78,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f274938ad9c6bb4cbbfbe6d5d8f6ecb, type: 2}
   m_IsPrefabParent: 0
