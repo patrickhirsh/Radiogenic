@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 public class PLayerSynthControls : MonoBehaviour
 {
     public GameObject bulletMuzzle;
+    public GameObject reflectiveBullet;
+    public GameObject bulletPrefab;
     private Vector2 velocity;
     public float velocityRate = 20f;
     public float accelerationRate;
     Rigidbody2D rb = new Rigidbody2D();
     float bulletDistance = .1f;
-    public GameObject bulletPrefab;
     float shotGunInterval = 0;
+    float powerUpTimer = 0f;
     float dashInterval = 0f;
     bool shotgun = false;
     bool dash = true;
+    bool blackHolePowerUp = false;
+    bool reflectiveBulletPowerUp = false;
+    bool powerUpInUse = false;
     public int thrust = 1000;
     public int thrust2 = 1200;
     public float variance = 0.2f;
@@ -369,6 +374,9 @@ public class PLayerSynthControls : MonoBehaviour
             shotGunInterval = Time.time;
 
         }
+        else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButtonDown(0))         {
+            // instatiate reflective bullet objects.
+            powerUpTimer = Time.time;             powerUpInUse = false;          }         else if (reflectiveBulletPowerUp && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         } 
         else if (Input.GetMouseButton(0))
         {
             
