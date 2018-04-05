@@ -346,24 +346,24 @@ public class PLayerSynthControls : MonoBehaviour
             go17.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari17), thrust2 * Mathf.Sin(angleR + vari17)));
             go18.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari18), thrust2 * Mathf.Sin(angleR + vari18)));
             //After a certain amount of seconds, destroy bullet
-            Destroy(go1, 1.0f);
-            Destroy(go2, 1.0f);
-            Destroy(go3, 1.0f);
-            Destroy(go4, 1.0f);
-            Destroy(go5, 1.0f);
-            Destroy(go6, 1.0f);
-            Destroy(go7, 1.0f);
-            Destroy(go8, 1.0f);
-            Destroy(go9, 1.0f);
-            Destroy(go10, 1.0f);
-            Destroy(go11, 1.0f);
-            Destroy(go12, 1.0f);
-            Destroy(go13, 1.0f);
-            Destroy(go14, 1.0f);
-            Destroy(go15, 1.0f);
-            Destroy(go16, 1.0f);
-            Destroy(go17, 1.0f);
-            Destroy(go18, 1.0f);
+            Destroy(go1, 2.0f);
+            Destroy(go2, 2.0f);
+            Destroy(go3, 2.0f);
+            Destroy(go4, 2.0f);
+            Destroy(go5, 2.0f);
+            Destroy(go6, 2.0f);
+            Destroy(go7, 2.0f);
+            Destroy(go8, 2.0f);
+            Destroy(go9, 2.0f);
+            Destroy(go10, 2.0f);
+            Destroy(go11, 2.0f);
+            Destroy(go12, 2.0f);
+            Destroy(go13, 2.0f);
+            Destroy(go14, 2.0f);
+            Destroy(go15, 2.0f);
+            Destroy(go16, 2.0f);
+            Destroy(go17, 2.0f);
+            Destroy(go18, 2.0f);
 
 
 
@@ -376,7 +376,10 @@ public class PLayerSynthControls : MonoBehaviour
         }
         else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButtonDown(0))         {
             // instatiate reflective bullet objects.
-            powerUpTimer = Time.time;             powerUpInUse = false;          }         else if (reflectiveBulletPowerUp && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         } 
+            powerUpTimer = Time.time;             powerUpInUse = false;          }         else if (reflectiveBulletPowerUp && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         }
+        else if(blackHolePowerUp && powerUpInUse){
+            
+        } 
         else if (Input.GetMouseButton(0))
         {
             
@@ -397,7 +400,7 @@ public class PLayerSynthControls : MonoBehaviour
             //go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(go1.transform.forward.x, go1.transform.forward.y).normalized * 1800);
                 go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari1), thrust * Mathf.Sin(angleR + vari1)));
 
-            Destroy(go1, 1.0f);
+            Destroy(go1, 2.0f);
 
 
             //shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
