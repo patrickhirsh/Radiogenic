@@ -208,6 +208,7 @@
 'Assets/Scripts/ScrollUV.cs'
 'Assets/Scripts/SimplySpaceship.cs'
 'Assets/Scripts/Spawnpoint_Script.cs'
+'Assets/Scripts/WallScript.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.dll'
