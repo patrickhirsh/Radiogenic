@@ -14,6 +14,7 @@ public class Enemy_04_Controller : MonoBehaviour
     public float hp;
     private float periodz = 2.0f;
     public float periodzint;
+    public float rotationSpeed;
     bool charge1 = false;
     float charge2 = 0;
 
@@ -57,6 +58,11 @@ public class Enemy_04_Controller : MonoBehaviour
                 {
                     rb.velocity = Vector3.zero;
                     rb.angularVelocity = 0;
+                    Vector2 directionRot = target.position - transform.position;
+                    float angle = Mathf.Atan2(directionRot.y, directionRot.x) * Mathf.Rad2Deg;
+                    angle += -90;
+                    Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
                     charge2 += .1f;
                 }
             }

@@ -107,6 +107,7 @@ MonoBehaviour:
   dragVal: 0.5
   hp: 1
   periodzint: 2
+  rotationSpeed: 2
 --- !u!212 &212899811571420890
 SpriteRenderer:
   m_ObjectHideFlags: 1
