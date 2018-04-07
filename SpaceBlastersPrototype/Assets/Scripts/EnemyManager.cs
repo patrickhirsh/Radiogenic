@@ -128,7 +128,7 @@ public class EnemyManager : MonoBehaviour
         TrySpawnEnemy(4, 14, 3, enemy05SpawnProbability);
         TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
 
-        Debug.Log(enemyCaches[0].Count);
+
     }
 
     void generateEnemyPool()

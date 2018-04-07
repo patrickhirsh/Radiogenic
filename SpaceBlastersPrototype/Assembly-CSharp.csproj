@@ -76,6 +76,7 @@
      <Compile Include="Assets\Scripts\ScrollUV.cs" />
      <Compile Include="Assets\Scripts\SimplySpaceship.cs" />
      <Compile Include="Assets\Scripts\Spawnpoint_Script.cs" />
+     <Compile Include="Assets\Scripts\trapRoom_Controller.cs" />
      <Compile Include="Assets\Scripts\WallScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Game Engines/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
