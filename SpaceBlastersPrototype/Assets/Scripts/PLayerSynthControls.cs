@@ -24,7 +24,7 @@ public class PLayerSynthControls : MonoBehaviour
     bool powerUpInUse = true;
     public int thrust = 1000;
     public int thrust2 = 1200;
-    public int blackHoleSpeed = 300;
+    public int blackHoleSpeed = 1000;
     public float variance = 0.2f;
     public float variance2 = 1f;
     public int hp = 10;

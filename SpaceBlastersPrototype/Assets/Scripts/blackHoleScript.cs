@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class blackHoleScript : MonoBehaviour {
 
-    public float radius = 5.0f;
+    public float radius = 15.0f;
     public float power = 10.0f;
     public float implosionTime = 0f;
     public Transform var1;
@@ -17,10 +17,10 @@ public class blackHoleScript : MonoBehaviour {
 	void Update () 
     {
         
-        if (implosionTime + 3 < Time.time)
+        if (implosionTime + 5 < Time.time)
         {
             Rigidbody2D newR = this.GetComponent<Rigidbody2D>();
-
+            newR.constraints = RigidbodyConstraints2D.FreezeAll;
             implode();
         }
 	}
