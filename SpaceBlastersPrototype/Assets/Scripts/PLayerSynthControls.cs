@@ -19,8 +19,8 @@ public class PLayerSynthControls : MonoBehaviour
     float dashInterval = 0f;
     bool shotgun = false;
     bool dash = true;
-    bool blackHolePowerUp = true;
-    bool reflectiveBulletPowerUp = false;
+    bool blackHolePowerUp = false;
+    bool reflectiveBulletPowerUp = true;
     bool powerUpInUse = true;
     public int thrust = 1000;
     public int thrust2 = 1200;

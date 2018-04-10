@@ -576,6 +576,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104d82232fc2e84ab04214772fb4d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackHolePowerUp: {fileID: 0}
+  rbPowerUp: {fileID: 0}
+  spawnTimer: 0
+  powerUpOut: 0
 --- !u!4 &988268854
 Transform:
   m_ObjectHideFlags: 0
