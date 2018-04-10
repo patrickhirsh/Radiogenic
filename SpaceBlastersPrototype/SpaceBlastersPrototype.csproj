@@ -328,6 +328,7 @@
     <Compile Include="Assets\Scripts\ScrollUV.cs" />
     <Compile Include="Assets\Scripts\SimplySpaceship.cs" />
     <Compile Include="Assets\Scripts\Spawnpoint_Script.cs" />
+    <Compile Include="Assets\Scripts\trapRoom_Controller.cs" />
     <Compile Include="Assets\Scripts\WallScript.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

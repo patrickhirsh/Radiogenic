@@ -21,10 +21,10 @@ public class PLayerSynthControls : MonoBehaviour
     bool dash = true;
     bool blackHolePowerUp = true;
     bool reflectiveBulletPowerUp = false;
-    bool powerUpInUse = false;
+    bool powerUpInUse = true;
     public int thrust = 1000;
     public int thrust2 = 1200;
-    public int blackHoleThrust = 300;
+    public int blackHoleSpeed = 300;
     public float variance = 0.2f;
     public float variance2 = 1f;
     public int hp = 10;
@@ -376,32 +376,10 @@ public class PLayerSynthControls : MonoBehaviour
             shotGunInterval = Time.time;
 
         }
-        else if (reflectiveBulletPowerUp && powerUpInUse == false && Input.GetKey(KeyCode.B))
-        {
+        else if (reflectiveBulletPowerUp && powerUpInUse == false && Input.GetKey(KeyCode.B))         {
             // instatiate reflective bullet objects.
-            powerUpTimer = Time.time;
-            powerUpInUse = true;
-
-        }
-        else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButton(0))
-        {
-            if (Time.time > powerUpTimer + 10f)
-            {
-                reflectiveBulletPowerUp = false;
-                powerUpInUse = false;
-            }
-            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
-            position = Camera.main.ScreenToWorldPoint(position);
-            float vari1 = Random.Range(-variance, variance);
-            float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));
-            if ((position.x - transform.position.x) < 0)
-                angleR += Mathf.PI;
-
-            GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
-            go1.transform.LookAt(position);
-            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));
-            Destroy(go1, 3.0f);
-        }
+            powerUpTimer = Time.time;             powerUpInUse = true;          }         else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;
+                powerUpInUse = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         }
         else if(blackHolePowerUp&& Input.GetKey(KeyCode.B)){
 
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
@@ -414,12 +392,11 @@ public class PLayerSynthControls : MonoBehaviour
             GameObject go1 = Instantiate(blackHole, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
             go1.transform.LookAt(position);
 
-            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(blackHoleThrust * Mathf.Cos(angleR + vari1), blackHoleThrust * Mathf.Sin(angleR + vari1)));
+            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(blackHoleSpeed * Mathf.Cos(angleR + vari1), blackHoleSpeed * Mathf.Sin(angleR + vari1)));
 
             blackHolePowerUp = false;
             Destroy(go1, 15.0f);
-        }
-
+        } 
         else if (Input.GetMouseButton(0))
         {
             
