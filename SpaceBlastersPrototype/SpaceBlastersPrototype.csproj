@@ -304,6 +304,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2D Explosion Force\script\ExplosionForce2D.cs" />
+    <Compile Include="Assets\Scripts\BlackHoleDrop.cs" />
     <Compile Include="Assets\Scripts\blackHoleScript.cs" />
     <Compile Include="Assets\Scripts\Bomb_Controller.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
@@ -324,6 +325,8 @@
     <Compile Include="Assets\Scripts\Old.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PLayerSynthControls.cs" />
+    <Compile Include="Assets\Scripts\ReflectiveBullet.cs" />
+    <Compile Include="Assets\Scripts\ReflectiveBulletDrop.cs" />
     <Compile Include="Assets\Scripts\ScreenShake.cs" />
     <Compile Include="Assets\Scripts\ScrollUV.cs" />
     <Compile Include="Assets\Scripts\SimplySpaceship.cs" />

@@ -20,7 +20,7 @@ public class PLayerSynthControls : MonoBehaviour
     bool shotgun = false;
     bool dash = true;
     bool blackHolePowerUp = false;
-    bool reflectiveBulletPowerUp = true;
+    bool reflectiveBulletPowerUp = false;
     bool powerUpInUse = true;
     public int thrust = 1000;
     public int thrust2 = 1200;
@@ -72,6 +72,13 @@ public class PLayerSynthControls : MonoBehaviour
                 
 
         }
+        if(collision.gameObject.tag == "powerup1"){
+            reflectiveBulletPowerUp = true;
+        }
+        if(collision.gameObject.tag == "powerup2"){
+            blackHolePowerUp = true;
+        }
+
 
     }
 
@@ -376,11 +383,11 @@ public class PLayerSynthControls : MonoBehaviour
             shotGunInterval = Time.time;
 
         }
-        else if (reflectiveBulletPowerUp && powerUpInUse == false && Input.GetKey(KeyCode.B))         {
+        else if (reflectiveBulletPowerUp && powerUpInUse == false && Input.GetKey(KeyCode.F))         {
             // instatiate reflective bullet objects.
             powerUpTimer = Time.time;             powerUpInUse = true;          }         else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;
                 powerUpInUse = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         }
-        else if(blackHolePowerUp&& Input.GetKey(KeyCode.B)){
+        else if(blackHolePowerUp&& Input.GetKey(KeyCode.F)){
 
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             position = Camera.main.ScreenToWorldPoint(position);

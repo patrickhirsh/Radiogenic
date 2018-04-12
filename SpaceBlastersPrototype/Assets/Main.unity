@@ -576,10 +576,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e104d82232fc2e84ab04214772fb4d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blackHolePowerUp: {fileID: 0}
-  rbPowerUp: {fileID: 0}
+  player: {fileID: 0}
+  blackHolePowerUp: {fileID: 1131024927033028, guid: ac61cf68ad8bf41f1b9c02e2495b122f,
+    type: 2}
+  rbPowerUp: {fileID: 1222307961663468, guid: 5b20e9996c8704d85bd1de5f70a5e765, type: 2}
   spawnTimer: 0
   powerUpOut: 0
+  powerUpCount: 0
+  blackHoleCount: 0
+  reflectiveBulletCount: 0
+  room1Taken: 0
+  room2Taken: 0
+  room3Taken: 0
+  room4Taken: 0
 --- !u!4 &988268854
 Transform:
   m_ObjectHideFlags: 0
