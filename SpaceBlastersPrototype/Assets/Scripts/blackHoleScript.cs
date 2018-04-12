@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class blackHoleScript : MonoBehaviour {
 
-    public float radius = 15.0f;
+    public float radius = 50.0f;
     public float power = 10.0f;
     public float implosionTime = 0f;
     public Transform var1;
