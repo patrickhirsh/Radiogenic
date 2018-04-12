@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour {
         {
             room1Taken = false;
             room3Taken = false;
+            room4Taken = false;
+            room2Taken = false;
             blackHoleCount--;
         }
         if(rbPowerUp == null && reflectiveBulletCount > 0)
@@ -67,7 +69,6 @@ public class GameManager : MonoBehaviour {
                     blackHoleCount++;
                 }
                 break;
-
             case 2:
                 if (!room3Taken)
                 {
@@ -77,24 +78,22 @@ public class GameManager : MonoBehaviour {
                     blackHoleCount++;
                 }
                 break;
-   
-                break;
             case 3:
                 if (!room2Taken)
                 {
-                    GameObject rb2 = Instantiate(rbPowerUp, room2, new Quaternion(0, 0, 0, 0)) as GameObject;
+                    GameObject rb2 = Instantiate(blackHolePowerUp, room2, new Quaternion(0, 0, 0, 0)) as GameObject;
                     powerUpCount++;
                     room2Taken = true;
-                    reflectiveBulletCount++;
+                    blackHoleCount++;
                 }
                 break;
             case 4:
                 if (!room4Taken)
                 {
-                    GameObject rb4 = Instantiate(rbPowerUp, room4, new Quaternion(0, 0, 0, 0)) as GameObject;
+                    GameObject rb4 = Instantiate(blackHolePowerUp, room4, new Quaternion(0, 0, 0, 0)) as GameObject;
                     powerUpCount++;
                     room4Taken = true;
-                    reflectiveBulletCount++;
+                    blackHoleCount++;
                 }
                 break;
             default:
