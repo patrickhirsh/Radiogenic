@@ -8,6 +8,11 @@ TagManager:
   - bullet
   - powerup1
   - powerup2
+  - Fire
+  - trigger
+  - tirgger2
+  - trigger3
+  - trigger4
   layers:
   - Default
   - TransparentFX

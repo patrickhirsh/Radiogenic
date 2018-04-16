@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4814661939122464}
   - component: {fileID: 212420927504844362}
-  - component: {fileID: 114411177518665244}
+  - component: {fileID: 114609602790379838}
   - component: {fileID: 50830794370891122}
   - component: {fileID: 58618730654894846}
   m_Layer: 0
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.66
---- !u!114 &114411177518665244
+--- !u!114 &114609602790379838
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,9 +86,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1131024927033028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7134894de47e64e278644a39c3b47b63, type: 3}
+  m_Script: {fileID: 11500000, guid: fcdbb1a6b84dd4103babf7c04969e646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blackHolePowerUp: {fileID: 1131024927033028}
+  rbPowerUp: {fileID: 1222307961663468, guid: 5b20e9996c8704d85bd1de5f70a5e765, type: 2}
+  trigger1: {fileID: 1209140258956910, guid: 631be1f4952314c7fac5b714777f754c, type: 2}
+  trigger2: {fileID: 1369323668352760, guid: 026445982d2ab4a709cd9cdade537257, type: 2}
+  trigger3: {fileID: 1125378790780978, guid: 63325e236afee49768fd0bb78fa576d1, type: 2}
+  trigger4: {fileID: 1629150733855636, guid: eb5d7fd796ab54973945d9acce2330fd, type: 2}
+  spawnTimer: 0
+  powerUpOut: 0
+  powerUpCount: 0
+  blackHoleCount: 0
+  reflectiveBulletCount: 0
+  room1Taken: 0
+  room2Taken: 0
+  room3Taken: 0
+  room4Taken: 0
 --- !u!212 &212420927504844362
 SpriteRenderer:
   m_ObjectHideFlags: 1

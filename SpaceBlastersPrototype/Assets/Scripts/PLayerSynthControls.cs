@@ -37,10 +37,6 @@ public class PLayerSynthControls : MonoBehaviour
         bulletPrefab = (GameObject)Resources.Load("bullet");
     }
 
-    private void Rotate()
-    {
-
-    }
 
     void hit(){
         hp--;
@@ -72,15 +68,35 @@ public class PLayerSynthControls : MonoBehaviour
                 
 
         }
-        if(collision.gameObject.tag == "powerup1"){
-            reflectiveBulletPowerUp = true;
-        }
-        if(collision.gameObject.tag == "powerup2"){
-            blackHolePowerUp = true;
+        if (collision.gameObject.tag == "powerup1")
+        {
+            int randomNum;
+            System.Random rand = new System.Random();
+            randomNum = rand.Next(1, 2);
+
+            switch (randomNum)
+            {
+                case 1:
+                    blackHolePowerUp = true;
+                    reflectiveBulletPowerUp = false;
+                    break;
+
+                case 2:
+                    reflectiveBulletPowerUp = true;
+                    blackHolePowerUp = false;
+                    break;
+                default:
+                    break;
+            }
         }
 
 
-    }
+        }
+     
+        
+
+
+    
 
     // Update is called once per frame
     void FixedUpdate()
