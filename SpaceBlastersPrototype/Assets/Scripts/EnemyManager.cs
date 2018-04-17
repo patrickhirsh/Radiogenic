@@ -126,7 +126,7 @@ public class EnemyManager : MonoBehaviour
         TrySpawnEnemy(2, 5, 10, enemy03SpawnProbability);
         TrySpawnEnemy(3, 1, 12, enemy04SpawnProbability);
         TrySpawnEnemy(4, 14, 3, enemy05SpawnProbability);
-        TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
+        //TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
 
 
     }

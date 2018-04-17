@@ -483,10 +483,10 @@ public class PLayerSynthControls : MonoBehaviour
             go4.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari4), thrust2 * Mathf.Sin(angleR + vari4)));
    
             //After a certain amount of seconds, destroy bullet
-            Destroy(go1, 2.0f);
-            Destroy(go2, 2.0f);
-            Destroy(go3, 2.0f);
-            Destroy(go4, 2.0f);
+            Destroy(go1, 1.0f);
+            Destroy(go2, 1.0f);
+            Destroy(go3, 1.0f);
+            Destroy(go4, 1.0f);
   
          }
         else if(blackHolePowerUp&& Input.GetKey(KeyCode.F)){
@@ -527,6 +527,7 @@ public class PLayerSynthControls : MonoBehaviour
         {
             shotgun = false;
             shotGunInterval = Time.time;
+            Vector3 defaultPosititon =  new Vector3(0, 0, 0);
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             position = Camera.main.ScreenToWorldPoint(position);
             float vari1 = Random.Range(-variance, variance);
@@ -534,12 +535,14 @@ public class PLayerSynthControls : MonoBehaviour
             if ((position.x - transform.position.x) < 0)
                 angleR += Mathf.PI;
 
-
+           
 
             GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
 
-
+            go1.transform.rotation.SetFromToRotation(defaultPosititon,position);
             go1.transform.LookAt(position);
+
+
                     
             //go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(go1.transform.forward.x, go1.transform.forward.y).normalized * 1800);
                 go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust * Mathf.Cos(angleR + vari1), thrust * Mathf.Sin(angleR + vari1)));
