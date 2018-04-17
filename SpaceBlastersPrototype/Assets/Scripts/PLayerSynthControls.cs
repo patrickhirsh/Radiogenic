@@ -21,9 +21,9 @@ public class PLayerSynthControls : MonoBehaviour
     bool shotgun = false;
     bool dash = true;
     bool blackHolePowerUp = false;
-    bool reflectiveBulletPowerUp = false;
-    bool bombPowerUp = true;
-    bool powerUpInUse = true;
+    bool fullautoShotgun = false;
+    bool bombPowerUp = false;
+    bool powerUpInUse = false;
     public int thrust = 1000;
     public int thrust2 = 1200;
     public int blackHoleSpeed = 1000;
@@ -80,19 +80,19 @@ public class PLayerSynthControls : MonoBehaviour
             {
                 case 1:
                     blackHolePowerUp = true;
-                    reflectiveBulletPowerUp = false;
+                    fullautoShotgun = false;
                     bombPowerUp = false;
                     break;
 
                 case 2:
-                    reflectiveBulletPowerUp = true;
+                    fullautoShotgun = true;
                     blackHolePowerUp = false;
                     bombPowerUp = false;
                     break;
                 case 3:
                     bombPowerUp = true;
                     blackHolePowerUp = false;
-                    reflectiveBulletPowerUp = false;
+                    fullautoShotgun = false;
                     break;
                 default:
                     break;
@@ -408,10 +408,87 @@ public class PLayerSynthControls : MonoBehaviour
             shotGunInterval = Time.time;
 
         }
-        else if (reflectiveBulletPowerUp && powerUpInUse == false && Input.GetKey(KeyCode.F))         {
+        else if (fullautoShotgun && powerUpInUse == false && Input.GetKey(KeyCode.F))         {
             // instatiate reflective bullet objects.
-            powerUpTimer = Time.time;             powerUpInUse = true;          }         else if (reflectiveBulletPowerUp && powerUpInUse && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 10f)             {                 reflectiveBulletPowerUp = false;
-                powerUpInUse = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);             position = Camera.main.ScreenToWorldPoint(position);             float vari1 = Random.Range(-variance, variance);             float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));             if ((position.x - transform.position.x) < 0)                 angleR += Mathf.PI;              GameObject go1 = Instantiate(reflectiveBullet, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;             go1.transform.LookAt(position);             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));             Destroy(go1, 3.0f);         }
+            powerUpTimer = Time.time;             powerUpInUse = true;          }         else if (fullautoShotgun && powerUpInUse && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 5f)             {                 fullautoShotgun = false;
+                powerUpInUse = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
+            position = Camera.main.ScreenToWorldPoint(position);
+            //Random.Range();
+            ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
+            ss.shakeDuration += .01f;
+            //Creating our bullet object in the world
+            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go3 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go4 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go5 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go6 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go7 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go8 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go9 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go10 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go11 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go12 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go13 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go14 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go15 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go16 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            //GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+
+
+
+
+            float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));
+            if ((position.x - transform.position.x) < 0)
+                angleR += Mathf.PI;
+
+            // this is purely to have the sprite oriented correctly...
+            go1.transform.LookAt(position);
+            go2.transform.LookAt(position);
+            go3.transform.LookAt(position);
+            go4.transform.LookAt(position);
+     
+
+            //Remove debug when not needed
+
+
+            //go1.transform. = 1500;
+
+
+            float vari1 = Random.Range(-variance2, variance2);
+            float vari2 = Random.Range(-variance2, variance2);
+            float vari3 = Random.Range(-variance2, variance2);
+            float vari4 = Random.Range(-variance2, variance2);
+            float vari5 = Random.Range(-variance2, variance2);
+            float vari6 = Random.Range(-variance2, variance2);
+            float vari7 = Random.Range(-variance2, variance2);
+            float vari8 = Random.Range(-variance2, variance2);
+            float vari9 = Random.Range(-variance2, variance2);
+            float vari10 = Random.Range(-variance2, variance2);
+            float vari11 = Random.Range(-variance2, variance2);
+            float vari12 = Random.Range(-variance2, variance2);
+            float vari13 = Random.Range(-variance2, variance2);
+            float vari14 = Random.Range(-variance2, variance2);
+            float vari15 = Random.Range(-variance2, variance2);
+            float vari16 = Random.Range(-variance2, variance2);
+            float vari17 = Random.Range(-variance2, variance2);
+            float vari18 = Random.Range(-variance2, variance2);
+
+
+            //Add forward force to the bullet
+            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari1), thrust2 * Mathf.Sin(angleR + vari1)));
+            go2.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari2), thrust2 * Mathf.Sin(angleR + vari2)));
+            go3.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari3), thrust2 * Mathf.Sin(angleR + vari3)));
+            go4.GetComponent<Rigidbody2D>().AddForce(new Vector2(thrust2 * Mathf.Cos(angleR + vari4), thrust2 * Mathf.Sin(angleR + vari4)));
+   
+            //After a certain amount of seconds, destroy bullet
+            Destroy(go1, 2.0f);
+            Destroy(go2, 2.0f);
+            Destroy(go3, 2.0f);
+            Destroy(go4, 2.0f);
+  
+         }
         else if(blackHolePowerUp&& Input.GetKey(KeyCode.F)){
 
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);

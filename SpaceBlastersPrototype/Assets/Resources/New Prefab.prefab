@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114815092450256150}
   - component: {fileID: 58835326788672356}
   m_Layer: 0
-  m_Name: PlayerBomb
+  m_Name: New Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
