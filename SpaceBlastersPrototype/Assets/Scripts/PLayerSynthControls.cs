@@ -525,7 +525,8 @@ public class PLayerSynthControls : MonoBehaviour
         } 
         else if (Input.GetMouseButton(0))
         {
-            
+            shotgun = false;
+            shotGunInterval = Time.time;
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
             position = Camera.main.ScreenToWorldPoint(position);
             float vari1 = Random.Range(-variance, variance);
