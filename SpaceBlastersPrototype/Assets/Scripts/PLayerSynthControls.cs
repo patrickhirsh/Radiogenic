@@ -9,6 +9,7 @@ public class PLayerSynthControls : MonoBehaviour
     public GameObject reflectiveBullet;
     public GameObject bulletPrefab;
     public GameObject blackHole;
+    public GameObject bomb;
     private Vector2 velocity;
     public float velocityRate = 20f;
     public float accelerationRate;
@@ -21,6 +22,7 @@ public class PLayerSynthControls : MonoBehaviour
     bool dash = true;
     bool blackHolePowerUp = false;
     bool reflectiveBulletPowerUp = false;
+    bool bombPowerUp = true;
     bool powerUpInUse = true;
     public int thrust = 1000;
     public int thrust2 = 1200;
@@ -72,18 +74,25 @@ public class PLayerSynthControls : MonoBehaviour
         {
             int randomNum;
             System.Random rand = new System.Random();
-            randomNum = rand.Next(1, 2);
+            randomNum = rand.Next(1, 3);
 
             switch (randomNum)
             {
                 case 1:
                     blackHolePowerUp = true;
                     reflectiveBulletPowerUp = false;
+                    bombPowerUp = false;
                     break;
 
                 case 2:
                     reflectiveBulletPowerUp = true;
                     blackHolePowerUp = false;
+                    bombPowerUp = false;
+                    break;
+                case 3:
+                    bombPowerUp = true;
+                    blackHolePowerUp = false;
+                    reflectiveBulletPowerUp = false;
                     break;
                 default:
                     break;
@@ -419,6 +428,23 @@ public class PLayerSynthControls : MonoBehaviour
 
             blackHolePowerUp = false;
             Destroy(go1, 15.0f);
+        }
+        else if (bombPowerUp && Input.GetKey(KeyCode.F))
+        {
+            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
+            position = Camera.main.ScreenToWorldPoint(position);
+            float vari1 = Random.Range(-variance, variance);
+            float angleR = Mathf.Atan((position.y - transform.position.y) / (position.x - transform.position.x));
+            if ((position.x - transform.position.x) < 0)
+                angleR += Mathf.PI;
+
+            GameObject go1 = Instantiate(bomb, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
+            go1.transform.LookAt(position);
+
+            go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(blackHoleSpeed * Mathf.Cos(angleR + vari1), blackHoleSpeed * Mathf.Sin(angleR + vari1)));
+
+            bombPowerUp = false;
+            Destroy(go1, 15.0f); 
         } 
         else if (Input.GetMouseButton(0))
         {
