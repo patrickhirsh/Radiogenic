@@ -24,7 +24,7 @@ public class ParticleManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        useParticles = false;
+
 	}
 	
 	// Update is called once per frame
@@ -35,61 +35,46 @@ public class ParticleManager : MonoBehaviour
 
     public static void generateEnemy1Explosion(GameObject enemy)
     {
-        if (useParticles)
-        {
-            Vector3 pos = enemy.transform.position;
-            var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy1Explosion"), pos, new Quaternion()) as GameObject;
-            Destroy(explosion, 2);
-        }
+        Vector3 pos = enemy.transform.position;
+        var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy1Explosion"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion, 2);
     }
 
     public static void generateEnemy2Explosion(GameObject enemy)
     {
-        if (useParticles)
-        {
-            Vector3 pos = enemy.transform.position;
-            var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy2Explosion"), pos, new Quaternion()) as GameObject;
-            Destroy(explosion, 2);
-        }
+        Vector3 pos = enemy.transform.position;
+        var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy2Explosion"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion, 2);
     }
 
     public static void generateEnemy3Explosion(GameObject enemy)
     {
-        if (useParticles)
-        {
-            Vector3 pos = enemy.transform.position;
-            var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy3Explosion"), pos, new Quaternion()) as GameObject;
-            Destroy(explosion, 2);
-        }
+        Vector3 pos = enemy.transform.position;
+        var explosion = Instantiate(Resources.Load("Particles/Explosions/enemy3Explosion"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion, 2);
     }
 
     public static void generateEnemy4Explosion(GameObject enemy)
     {
-        if (useParticles)
-        {
-            Vector3 pos = enemy.transform.position;
-            var explosion1 = Instantiate(Resources.Load("Particles/Explosions/enemy4Explosion"), pos, new Quaternion()) as GameObject;
-            var explosion2 = Instantiate(Resources.Load("Particles/Explosions/enemy4Explosion2"), pos, new Quaternion()) as GameObject;
-            Destroy(explosion1, 2);
-            Destroy(explosion2, 2);
-        }
+        Vector3 pos = enemy.transform.position;
+        var explosion1 = Instantiate(Resources.Load("Particles/Explosions/enemy4Explosion"), pos, new Quaternion()) as GameObject;
+        var explosion2 = Instantiate(Resources.Load("Particles/Explosions/enemy4Explosion2"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion1, 2);
+        Destroy(explosion2, 2);
     }
 
     public static void generateEnemy5Explosion(GameObject enemy)
     {
-        if (useParticles)
-        {
-            Vector3 pos = enemy.transform.position;
-            var explosion1 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion1"), pos, new Quaternion()) as GameObject;
-            var explosion2 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion2"), pos, new Quaternion()) as GameObject;
-            var explosion3 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion3"), pos, new Quaternion()) as GameObject;
-            var explosion4 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion4"), pos, new Quaternion()) as GameObject;
-            var explosion5 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion5"), pos, new Quaternion()) as GameObject;
-            Destroy(explosion1, 5);
-            Destroy(explosion2, 5);
-            Destroy(explosion3, 5);
-            Destroy(explosion4, 5);
-            Destroy(explosion5, 5);
-        }
+        Vector3 pos = enemy.transform.position;
+        var explosion1 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion1"), pos, new Quaternion()) as GameObject;
+        var explosion2 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion2"), pos, new Quaternion()) as GameObject;
+        var explosion3 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion3"), pos, new Quaternion()) as GameObject;
+        var explosion4 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion4"), pos, new Quaternion()) as GameObject;
+        var explosion5 = Instantiate(Resources.Load("Particles/Explosions/enemy5Explosion5"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion1, 5);
+        Destroy(explosion2, 5);
+        Destroy(explosion3, 5);
+        Destroy(explosion4, 5);
+        Destroy(explosion5, 5);
     }
 }
