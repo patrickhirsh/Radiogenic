@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speed: 6
+  speed: 5
   hitbox: 0.7
   dragVal: 0.5
   hp: 1
