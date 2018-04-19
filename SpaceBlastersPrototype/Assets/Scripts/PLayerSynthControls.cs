@@ -46,8 +46,8 @@ public class PLayerSynthControls : MonoBehaviour
         //ss.shakeDuration += .5f;
         if(hp <= 0)
         {
-            int scene = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+            Destroy(this.gameObject);
+            SceneManager.LoadScene("Replay", LoadSceneMode.Additive);            
         }
     }
 
@@ -93,6 +93,9 @@ public class PLayerSynthControls : MonoBehaviour
                     bombPowerUp = true;
                     blackHolePowerUp = false;
                     fullautoShotgun = false;
+                    break;
+                case 4:
+                    hp+= 3;
                     break;
                 default:
                     break;
@@ -281,24 +284,24 @@ public class PLayerSynthControls : MonoBehaviour
             ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
             ss.shakeDuration += .01f;
             //Creating our bullet object in the world
-            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go3 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go4 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go5 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go6 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go7 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go8 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go9 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go10 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go11 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go12 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go13 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go14 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go15 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go16 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go3 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go4 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go5 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go6 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go7 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go8 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go9 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go10 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go11 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go12 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go13 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go14 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go15 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go16 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
 
 
 
@@ -308,24 +311,7 @@ public class PLayerSynthControls : MonoBehaviour
                 angleR += Mathf.PI;
 
             // this is purely to have the sprite oriented correctly...
-            go1.transform.LookAt(position);
-            go2.transform.LookAt(position);
-            go3.transform.LookAt(position);
-            go4.transform.LookAt(position);
-            go5.transform.LookAt(position);
-            go6.transform.LookAt(position);
-            go7.transform.LookAt(position);
-            go8.transform.LookAt(position);
-            go9.transform.LookAt(position);
-            go10.transform.LookAt(position);
-            go11.transform.LookAt(position);
-            go12.transform.LookAt(position);
-            go13.transform.LookAt(position);
-            go14.transform.LookAt(position);
-            go15.transform.LookAt(position);
-            go16.transform.LookAt(position);
-            go17.transform.LookAt(position);
-            go18.transform.LookAt(position);
+
 
             //go1.transform.Rotate(new Vector3(0, 0, Random.Range(-2, 2)));
             //go2.transform.Rotate(new Vector3(0, 0, Random.Range(-2, 2)));
@@ -408,19 +394,30 @@ public class PLayerSynthControls : MonoBehaviour
             shotGunInterval = Time.time;
 
         }
-        else if (fullautoShotgun && powerUpInUse == false && Input.GetKey(KeyCode.F))         {
+        else if (fullautoShotgun && powerUpInUse == false && Input.GetKey(KeyCode.F))
+        {
             // instatiate reflective bullet objects.
-            powerUpTimer = Time.time;             powerUpInUse = true;          }         else if (fullautoShotgun && powerUpInUse && Input.GetMouseButton(0))         {             if (Time.time > powerUpTimer + 5f)             {                 fullautoShotgun = false;
-                powerUpInUse = false;             }             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
+            powerUpTimer = Time.time;
+            powerUpInUse = true;
+
+        }
+        else if (fullautoShotgun && powerUpInUse && Input.GetMouseButton(0))
+        {
+            if (Time.time > powerUpTimer + 5f)
+            {
+                fullautoShotgun = false;
+                powerUpInUse = false;
+            }
+            Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, bulletDistance);
             position = Camera.main.ScreenToWorldPoint(position);
             //Random.Range();
             ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
             ss.shakeDuration += .01f;
             //Creating our bullet object in the world
-            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go3 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
-            GameObject go4 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go2 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go3 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            GameObject go4 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
             //GameObject go5 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             //GameObject go6 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             //GameObject go7 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
@@ -444,10 +441,7 @@ public class PLayerSynthControls : MonoBehaviour
                 angleR += Mathf.PI;
 
             // this is purely to have the sprite oriented correctly...
-            go1.transform.LookAt(position);
-            go2.transform.LookAt(position);
-            go3.transform.LookAt(position);
-            go4.transform.LookAt(position);
+      
      
 
             //Remove debug when not needed
@@ -488,7 +482,8 @@ public class PLayerSynthControls : MonoBehaviour
             Destroy(go3, 1.0f);
             Destroy(go4, 1.0f);
   
-         }
+
+        }
         else if(blackHolePowerUp&& Input.GetKey(KeyCode.F)){
 
             Vector3 position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0.0f);
@@ -498,7 +493,7 @@ public class PLayerSynthControls : MonoBehaviour
             if ((position.x - transform.position.x) < 0)
                 angleR += Mathf.PI;
                 
-            GameObject go1 = Instantiate(blackHole, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
+            GameObject go1 = Instantiate(blackHole, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
             go1.transform.LookAt(position);
 
             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(blackHoleSpeed * Mathf.Cos(angleR + vari1), blackHoleSpeed * Mathf.Sin(angleR + vari1)));
@@ -515,14 +510,15 @@ public class PLayerSynthControls : MonoBehaviour
             if ((position.x - transform.position.x) < 0)
                 angleR += Mathf.PI;
 
-            GameObject go1 = Instantiate(bomb, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
+            GameObject go1 = Instantiate(bomb, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
             go1.transform.LookAt(position);
 
             go1.GetComponent<Rigidbody2D>().AddForce(new Vector2(blackHoleSpeed * Mathf.Cos(angleR + vari1), blackHoleSpeed * Mathf.Sin(angleR + vari1)));
 
             bombPowerUp = false;
             Destroy(go1, 15.0f); 
-        } 
+        }
+
         else if (Input.GetMouseButton(0))
         {
             shotgun = false;
@@ -537,10 +533,13 @@ public class PLayerSynthControls : MonoBehaviour
 
            
 
-            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, bulletMuzzle.transform.rotation) as GameObject;
+            GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
 
-            go1.transform.rotation.SetFromToRotation(defaultPosititon,position);
-            go1.transform.LookAt(position);
+
+
+            //go1.transform.LookAt(position);
+            //go1.transform.rotation.SetFromToRotation(defaultPosititon, position);
+
 
 
                     

@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Resources/All Menu Scenes/Replay.unity
+    guid: abce39ea534d96d468bd06c25d24d370
+  - enabled: 1
+    path: Assets/Resources/All Menu Scenes/Credit Screen.unity
+    guid: dea2a179ae85f3f42a0484b145f0bfa1
