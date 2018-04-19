@@ -374,6 +374,7 @@
     <Compile Include="Assets\Scripts\FollowUV.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Old.cs" />
+    <Compile Include="Assets\Scripts\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBomb.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PLayerSynthControls.cs" />
@@ -382,12 +383,15 @@
     <Compile Include="Assets\Scripts\ReflectiveBulletDrop.cs" />
     <Compile Include="Assets\Scripts\ScreenShake.cs" />
     <Compile Include="Assets\Scripts\ScrollUV.cs" />
+    <Compile Include="Assets\Scripts\setAsTime.cs" />
     <Compile Include="Assets\Scripts\SimplySpaceship.cs" />
     <Compile Include="Assets\Scripts\Spawnpoint_Script.cs" />
     <Compile Include="Assets\Scripts\trapRoom_Controller.cs" />
     <Compile Include="Assets\Scripts\WallScript.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Resources\font\guardians\license.txt" />
+    <None Include="Assets\Resources\font\guardians\readme.txt" />
     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />

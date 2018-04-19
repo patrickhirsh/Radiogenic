@@ -27,4 +27,8 @@ public class BulletController : MonoBehaviour {
             Physics2D.IgnoreCollision(coll.otherCollider, this.GetComponent<Collider2D>());
         
     }
+    private void Awake()
+    {
+       
+    }
 }
