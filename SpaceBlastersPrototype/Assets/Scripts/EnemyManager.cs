@@ -169,15 +169,18 @@ public class EnemyManager : MonoBehaviour
                 if (enemyType == 4)
                     finalRadius = spawnRadius / 3;
 
-                    // determine spawn point
-                    double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
+                // determine spawn point
+                double spawnAngle = rnd.Next(1, 360) * (Math.PI / 180);
                 double spawnX = Math.Cos(spawnAngle) * finalRadius;
                 double spawnY = Math.Sin(spawnAngle) * finalRadius;
 
                 // activate enemy
-                var enemy = enemyCaches[enemyType].Pop();
-                enemy.SetActive(true);
-                enemy.transform.position = new Vector3((float)spawnX, (float)spawnY, 0);
+                if (enemyCaches[enemyType].Count != 0)
+                {
+                    var enemy = enemyCaches[enemyType].Pop();
+                    enemy.SetActive(true);
+                    enemy.transform.position = new Vector3((float)spawnX, (float)spawnY, 0);
+                }
             }
         }
     }

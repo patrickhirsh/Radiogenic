@@ -59,6 +59,7 @@ public class Enemy_05_Controller : MonoBehaviour
         hp--;
         if (hp <= 0)
         {
+            ParticleManager.generateEnemy5Explosion(this.gameObject);
             this.gameObject.SetActive(false);
             EnemyManager.enemyCaches[4].Push(this.gameObject);
         }

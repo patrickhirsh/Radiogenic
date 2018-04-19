@@ -39,8 +39,10 @@ public class EnemyController : MonoBehaviour {
     void hit()
     {
         hp--;
+
         if (hp <= 0)
         {
+            ParticleManager.generateEnemy1Explosion(this.gameObject);
             this.gameObject.SetActive(false);
             EnemyManager.enemyCaches[0].Push(this.gameObject);
         }
