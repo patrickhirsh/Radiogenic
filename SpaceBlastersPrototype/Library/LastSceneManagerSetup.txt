@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Resources/Particles/Machine Gun.unity
+  isLoaded: 1
+  isActive: 1

@@ -77,4 +77,10 @@ public class ParticleManager : MonoBehaviour
         Destroy(explosion4, 5);
         Destroy(explosion5, 5);
     }
+
+    public static void generateBulletTrail(GameObject bullet)
+    {
+        Vector3 pos = bullet.transform.position;
+        var explosion1 = Instantiate(Resources.Load("Particles/Machine Gun"), pos, new Quaternion()) as GameObject;
+    }
 }
