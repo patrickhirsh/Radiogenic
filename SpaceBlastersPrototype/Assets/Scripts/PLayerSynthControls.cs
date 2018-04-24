@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PLayerSynthControls : MonoBehaviour
 {
+    public int gameState = 1;   
+
     public GameObject bulletMuzzle;
     public GameObject reflectiveBullet;
     public GameObject bulletPrefab;
@@ -51,7 +53,11 @@ public class PLayerSynthControls : MonoBehaviour
         //ss.shakeDuration += .5f;
         if(hp <= 0)
         {
-            this.transform.localScale = new Vector3(0, 0, 0);
+            if (gameState == 1)
+                ParticleManager.generatePlayerDeathEffect(this.gameObject);
+
+            gameState = 0;
+            this.transform.localScale = new Vector3(0, 0, 0); 
             replayBut.SetActive(true);
             backBut.SetActive(true);
             deathBackground.SetActive(true);
@@ -311,6 +317,26 @@ public class PLayerSynthControls : MonoBehaviour
             GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
             GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
 
+            // add bullet trail
+            ParticleManager.generateSGBulletTrail(go1);
+            ParticleManager.generateSGBulletTrail(go2);
+            ParticleManager.generateSGBulletTrail(go3);
+            ParticleManager.generateSGBulletTrail(go4);
+            ParticleManager.generateSGBulletTrail(go5);
+            ParticleManager.generateSGBulletTrail(go6);
+            ParticleManager.generateSGBulletTrail(go7);
+            ParticleManager.generateSGBulletTrail(go8);
+            ParticleManager.generateSGBulletTrail(go9);
+            ParticleManager.generateSGBulletTrail(go10);
+            ParticleManager.generateSGBulletTrail(go11);
+            ParticleManager.generateSGBulletTrail(go12);
+            ParticleManager.generateSGBulletTrail(go13);
+            ParticleManager.generateSGBulletTrail(go14);
+            ParticleManager.generateSGBulletTrail(go15);
+            ParticleManager.generateSGBulletTrail(go16);
+            ParticleManager.generateSGBulletTrail(go17);
+            ParticleManager.generateSGBulletTrail(go18);
+
 
 
 
@@ -440,6 +466,12 @@ public class PLayerSynthControls : MonoBehaviour
             //GameObject go16 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             //GameObject go17 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
             //GameObject go18 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, Quaternion.identity) as GameObject;
+
+            // attach particle effect
+            ParticleManager.generateBulletTrail(go1);
+            ParticleManager.generateBulletTrail(go2);
+            ParticleManager.generateBulletTrail(go3);
+            ParticleManager.generateBulletTrail(go4);
 
 
 

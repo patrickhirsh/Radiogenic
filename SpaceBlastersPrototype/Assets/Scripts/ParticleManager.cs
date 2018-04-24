@@ -84,4 +84,19 @@ public class ParticleManager : MonoBehaviour
         var bulletTrail = Instantiate(Resources.Load("Particles/Machine Gun"), pos, new Quaternion()) as GameObject;
         bulletTrail.transform.parent = bullet.transform;
     }
+
+    public static void generateSGBulletTrail(GameObject bullet)
+    {
+        Vector3 pos = bullet.transform.position;
+        var bulletTrail = Instantiate(Resources.Load("Particles/Shotgun"), pos, new Quaternion()) as GameObject;
+        bulletTrail.transform.parent = bullet.transform;
+    }
+
+    public static void generatePlayerDeathEffect(GameObject player)
+    {
+        Vector3 pos = new Vector3(); 
+        pos = player.transform.position;
+        var explosion = Instantiate(Resources.Load("Particles/Hero Dath"), pos, new Quaternion()) as GameObject;
+        Destroy(explosion, 10);
+    }
 }
