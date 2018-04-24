@@ -534,6 +534,7 @@ public class PLayerSynthControls : MonoBehaviour
            
 
             GameObject go1 = Instantiate(bulletPrefab, bulletMuzzle.transform.position, this.transform.rotation) as GameObject;
+            ParticleManager.generateBulletTrail(go1);
 
 
 

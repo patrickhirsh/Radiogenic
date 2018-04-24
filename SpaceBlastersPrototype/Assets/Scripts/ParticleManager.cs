@@ -81,6 +81,7 @@ public class ParticleManager : MonoBehaviour
     public static void generateBulletTrail(GameObject bullet)
     {
         Vector3 pos = bullet.transform.position;
-        var explosion1 = Instantiate(Resources.Load("Particles/Machine Gun"), pos, new Quaternion()) as GameObject;
+        var bulletTrail = Instantiate(Resources.Load("Particles/Machine Gun"), pos, new Quaternion()) as GameObject;
+        bulletTrail.transform.parent = bullet.transform;
     }
 }
