@@ -13,6 +13,7 @@ TagManager:
   - tirgger2
   - trigger3
   - trigger4
+  - Music
   layers:
   - Default
   - TransparentFX

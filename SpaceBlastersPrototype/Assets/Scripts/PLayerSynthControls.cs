@@ -37,13 +37,18 @@ public class PLayerSynthControls : MonoBehaviour
     public GameObject backBut;
     public GameObject deathBackground;
     public GameObject timer;
+    bool playerDead;
 
+    //Audio Stuff
+    public AudioSource AS;
 
     // Use this for initializationr
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
         bulletPrefab = (GameObject)Resources.Load("bullet");
+        AS = GetComponent<AudioSource>();
+        playerDead = false;
     }
 
 
@@ -51,8 +56,11 @@ public class PLayerSynthControls : MonoBehaviour
         hp--;
         ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
         //ss.shakeDuration += .5f;
-        if(hp <= 0)
+        if(hp <= 0 && !playerDead)
         {
+            Debug.Log("entered death");
+            AS.PlayOneShot(Resources.Load<AudioClip>("SFX/playerDeath"));
+            Debug.Log("Should be dead here");
             if (gameState == 1)
                 ParticleManager.generatePlayerDeathEffect(this.gameObject);
 
@@ -61,7 +69,8 @@ public class PLayerSynthControls : MonoBehaviour
             replayBut.SetActive(true);
             backBut.SetActive(true);
             deathBackground.SetActive(true);
-            timer.SetActive(false);
+            //need to pause timer here
+            playerDead = true;
         }
     }
 

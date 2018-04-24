@@ -13,11 +13,13 @@ public class GameManager : MonoBehaviour {
     public bool room2Taken = false;
     public bool room3Taken = false;
     public bool room4Taken = false;
-   
+    //Audio Stuff
+        
 
 	// Use this for initialization
 	void Start () {
         spawnTimer = Time.time;
+
 	}
 	
 	// Update is called once per frame
