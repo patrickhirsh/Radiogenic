@@ -46,8 +46,11 @@ public class PLayerSynthControls : MonoBehaviour
         //ss.shakeDuration += .5f;
         if(hp <= 0)
         {
-            Destroy(this.gameObject);
-            SceneManager.LoadScene("Replay", LoadSceneMode.Additive);            
+            this.transform.localScale = new Vector3(0, 0, 0);
+            replayBut.SetActive(true);
+            backBut.SetActive(true);
+            deathBackGround.SetActive(true);
+            timer.SetActive(false);
         }
     }
 
