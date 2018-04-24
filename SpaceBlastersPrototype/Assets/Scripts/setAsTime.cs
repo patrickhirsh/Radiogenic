@@ -22,7 +22,7 @@ public class setAsTime : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-        text.text = "Time " + Time.time.ToString();
+        text.text = "Time " + (int)Time.time;
 
 	}
 }

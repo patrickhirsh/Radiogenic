@@ -49,6 +49,7 @@ public class PLayerSynthControls : MonoBehaviour
         bulletPrefab = (GameObject)Resources.Load("bullet");
         AS = GetComponent<AudioSource>();
         playerDead = false;
+        timer.SetActive(true);
     }
 
 
