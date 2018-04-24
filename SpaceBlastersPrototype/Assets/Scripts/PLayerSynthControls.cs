@@ -31,8 +31,13 @@ public class PLayerSynthControls : MonoBehaviour
     public float variance2 = 1f;
     public int hp = 10;
     public GameObject DamageSprite;
+    public GameObject replayBut;
+    public GameObject backBut;
+    public GameObject deathBackground;
+    public GameObject timer;
 
-    // Use this for initialization
+
+    // Use this for initializationr
     void Start()
     {
         rb = this.GetComponent<Rigidbody2D>();
@@ -49,7 +54,7 @@ public class PLayerSynthControls : MonoBehaviour
             this.transform.localScale = new Vector3(0, 0, 0);
             replayBut.SetActive(true);
             backBut.SetActive(true);
-            deathBackGround.SetActive(true);
+            deathBackground.SetActive(true);
             timer.SetActive(false);
         }
     }
