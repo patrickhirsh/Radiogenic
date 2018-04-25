@@ -488,7 +488,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 480, y: 277.1549}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &421353751
 MonoBehaviour:
@@ -1194,6 +1194,7 @@ GameObject:
   - component: {fileID: 1189819763}
   - component: {fileID: 1189819762}
   - component: {fileID: 1189819761}
+  - component: {fileID: 1189819764}
   - component: {fileID: 1189819760}
   m_Layer: 5
   m_Name: Back button
@@ -1275,7 +1276,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1189819762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1189819764}
+        m_MethodName: loadscene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1189819762
@@ -1311,6 +1323,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1189819758}
+--- !u!114 &1189819764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1189819758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432daed0dd0ff7a4c82a8829c3b6a43b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scenename: Start Mewn
 --- !u!1 &1210211169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2731,6 +2755,41 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4b283097b4ef7df428cb87b5bbdda10d, type: 2}
   m_IsPrefabParent: 0
@@ -3400,7 +3459,7 @@ Animator:
   m_GameObject: {fileID: 1743802759}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98f1616202e97cb488a522c2ca936e9e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 75f444c557a5f094091898ab418a9b56, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
