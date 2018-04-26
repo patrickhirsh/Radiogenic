@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{A1A9AAFA-3354-C709-66B3-AD68E9878961}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/setAsTime.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PLayerSynthControls.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameManager.cs" Line="30" Column="28" />
-      <File FileName="Assets/Scripts/PowerUpScript.cs" Line="26" Column="13" />
-      <File FileName="Assets/Scripts/PLayerSynthControls.cs" Line="98" Column="27" />
-      <File FileName="Assets/Scripts/setAsTime.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PowerUpScript.cs" Line="26" Column="2" />
+      <File FileName="Assets/Scripts/PLayerSynthControls.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/setAsTime.cs" Line="12" Column="32" />
+      <File FileName="Assets/menu/All Menu Scenes/SceneLoad.cs" Line="10" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

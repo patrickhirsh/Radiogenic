@@ -31,13 +31,18 @@ public class PLayerSynthControls : MonoBehaviour
     public int blackHoleSpeed = 1000;
     public float variance = 0.2f;
     public float variance2 = 1f;
-    public int hp = 10;
+    public int hp = 5;
     public GameObject DamageSprite;
     public GameObject replayBut;
     public GameObject backBut;
     public GameObject deathBackground;
     public GameObject timer;
     bool playerDead;
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
+    public GameObject heart4;
+    public GameObject heart5;
 
     //Audio Stuff
     public AudioSource AS;
@@ -57,6 +62,30 @@ public class PLayerSynthControls : MonoBehaviour
         hp--;
         ScreenShake ss = Camera.main.GetComponent<ScreenShake>();
         //ss.shakeDuration += .5f;
+        switch(hp){
+            case 0:
+                heart1.SetActive(false);
+                break;
+            case 1:
+                heart2.SetActive(false);
+                break;
+            case 2:
+                heart3.SetActive(false);
+                break;
+            case 3:
+                heart4.SetActive(false);
+                break;
+            case 4:
+                heart5.SetActive(false);
+                break;
+            case 5:
+                heart5.SetActive(true);
+                break;
+            default:
+                break;
+                
+
+        }
         if(hp <= 0 && !playerDead)
         {
             Debug.Log("entered death");
@@ -99,7 +128,7 @@ public class PLayerSynthControls : MonoBehaviour
             int randomNum;
             System.Random rand = new System.Random();
             randomNum = rand.Next(1, 3);
-
+         
             switch (randomNum)
             {
                 case 1:
@@ -119,8 +148,10 @@ public class PLayerSynthControls : MonoBehaviour
                     fullautoShotgun = false;
                     break;
                 case 4:
-                    hp+= 3;
+                    hp+= 1;
+                    IncreaseHealth();
                     break;
+                    
                 default:
                     break;
             }
@@ -128,6 +159,32 @@ public class PLayerSynthControls : MonoBehaviour
 
 
         }
+    void IncreaseHealth()
+    {
+        switch (hp)
+        {
+            case 0:
+                heart1.SetActive(true);
+                break;
+            case 1:
+                heart2.SetActive(true);
+                break;
+            case 2:
+                heart3.SetActive(true);
+                break;
+            case 3:
+                heart4.SetActive(true);
+                break;
+            case 4:
+                heart5.SetActive(true);
+                break;
+            case 5:
+                heart5.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
      
         
 
