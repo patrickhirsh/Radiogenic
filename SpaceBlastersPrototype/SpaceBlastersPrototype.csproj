@@ -368,6 +368,7 @@
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\Resources\All Menu Scenes\SceneLoad.cs" />
     <Compile Include="Assets\Scripts\BlackHoleDrop.cs" />
     <Compile Include="Assets\Scripts\blackHoleScript.cs" />
