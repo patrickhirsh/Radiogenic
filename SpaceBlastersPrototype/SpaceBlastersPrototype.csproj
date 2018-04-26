@@ -323,8 +323,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\2D Explosion Force\script\ExplosionForce2D.cs" />
-    <Compile Include="Assets\DontDestroy.cs" />
-    <Compile Include="Assets\menu\All Menu Scenes\SceneLoad.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\CrossPlatformInput\Scripts\ButtonHandler.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
@@ -370,7 +368,6 @@
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointProgressTracker.cs" />
-    <Compile Include="Assets\MoviePlay.cs" />
     <Compile Include="Assets\Resources\All Menu Scenes\SceneLoad.cs" />
     <Compile Include="Assets\Scripts\BlackHoleDrop.cs" />
     <Compile Include="Assets\Scripts\blackHoleScript.cs" />
@@ -379,6 +376,7 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\CameraFollow2.cs" />
     <Compile Include="Assets\Scripts\DamageSprite.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Enemy_02_controller.cs" />
     <Compile Include="Assets\Scripts\Enemy_03_Controller.cs" />
     <Compile Include="Assets\Scripts\Enemy_04_Controller.cs" />
@@ -390,6 +388,7 @@
     <Compile Include="Assets\Scripts\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\FollowUV.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\MoviePlay.cs" />
     <Compile Include="Assets\Scripts\Old.cs" />
     <Compile Include="Assets\Scripts\ParticleManager.cs" />
     <Compile Include="Assets\Scripts\PlayerBomb.cs" />
