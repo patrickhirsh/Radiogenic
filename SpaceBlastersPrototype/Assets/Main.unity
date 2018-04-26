@@ -1028,7 +1028,7 @@ Prefab:
     - target: {fileID: 114871583366465130, guid: 9f274938ad9c6bb4cbbfbe6d5d8f6ecb,
         type: 2}
       propertyPath: hp
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114871583366465130, guid: 9f274938ad9c6bb4cbbfbe6d5d8f6ecb,
         type: 2}
@@ -2543,6 +2543,26 @@ Prefab:
         type: 2}
       propertyPath: ColorModule.gradient.maxGradient.key3.r
       value: 0.7317241
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198815469944201346, guid: 4b283097b4ef7df428cb87b5bbdda10d,
         type: 2}
