@@ -5,31 +5,33 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+    public static int gameState = 0;
+    public static float gameStartTime = 0f;
+
     public GameObject powerUp;
-    public float spawnTimer = 0f;
+    public float pwrUpTimer = 0f;
     public bool powerUpOut = false;
     public int powerUpCount = 0;
     public bool room1Taken = false;
     public bool room2Taken = false;
     public bool room3Taken = false;
     public bool room4Taken = false;
-    //Audio Stuff
         
 
 	// Use this for initialization
-	void Start () {
-        spawnTimer = Time.time;
-
+	void Start ()
+    {
+        pwrUpTimer = Time.time;
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (spawnTimer + 15 < Time.time && powerUpCount < 2)
+        if (pwrUpTimer + 15 < Time.time && powerUpCount < 2)
         {
             spawnPowerup();
-            spawnTimer = Time.time;
+            pwrUpTimer = Time.time;
         }
-        if (spawnTimer + 15 < Time.time && powerUp.Equals(null)){
+        if (pwrUpTimer + 15 < Time.time && powerUp.Equals(null)){
             powerUpCount = 0;
             room1Taken = false;
             room2Taken = false;
@@ -39,6 +41,23 @@ public class GameManager : MonoBehaviour {
 
 
 	}
+
+    public static void Restart()
+    {
+        setStartTime();
+        EnemyManager.Restart();
+    }
+
+    private static void setStartTime()
+    {
+        gameStartTime = Time.time;
+    }
+
+    public static float getGameTime()
+    {
+        return Time.time - gameStartTime;
+    }
+
     private void spawnPowerup()
     {
         int randomNum;
@@ -91,8 +110,5 @@ public class GameManager : MonoBehaviour {
             default:
                 break;
         }
-       
     }
-
-
 }

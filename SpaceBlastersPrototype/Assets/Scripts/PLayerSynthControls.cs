@@ -62,6 +62,7 @@ public class PLayerSynthControls : MonoBehaviour
             Debug.Log("entered death");
             AS.PlayOneShot(Resources.Load<AudioClip>("SFX/playerDeath"));
             Debug.Log("Should be dead here");
+
             if (gameState == 1)
                 ParticleManager.generatePlayerDeathEffect(this.gameObject);
 

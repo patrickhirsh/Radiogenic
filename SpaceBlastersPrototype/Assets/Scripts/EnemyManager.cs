@@ -43,7 +43,7 @@ public class EnemyManager : MonoBehaviour
         float spawnThrust = 2000;    // thrust at which enemy01's spawn from enemy05
 
         // check if we're within the spawn interval
-        if ((int)Time.time % spawnInterval == 0)
+        if ((int)GameManager.getGameTime() % spawnInterval == 0)
         {
             // determine if we should spawn an enemy
             if ((rnd.Next(0, 100) <= spawnProbability) && (enemyCaches[0].Count > 0))
@@ -101,6 +101,8 @@ public class EnemyManager : MonoBehaviour
     // Singleton pattern
     void Awake()
     {
+        Restart();
+
         if (EM == null)
         {
             DontDestroyOnLoad(gameObject);
@@ -111,11 +113,28 @@ public class EnemyManager : MonoBehaviour
     }
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         rnd = new System.Random();
         generateEnemyPool();
+    }
 
+    // Resets the state of the Enemy Manager. Should be called upon starting/restarting the game
+    public static void Restart()
+    {
+        rnd = new System.Random();
+
+        enemy01Cache.Clear();
+        enemy02Cache.Clear();
+        enemy03Cache.Clear();
+        enemy04Cache.Clear();
+        enemy05Cache.Clear();
+        enemy06Cache.Clear();
+
+        enemyCaches.Clear();
+        enemyCaches = new List<Stack<GameObject>>() { enemy01Cache, enemy02Cache, enemy03Cache, enemy04Cache, enemy05Cache, enemy06Cache };
+        generateEnemyPool();
+        
     }
 
     // FixedUpdate is called 30 times per second
@@ -131,7 +150,7 @@ public class EnemyManager : MonoBehaviour
 
     }
 
-    void generateEnemyPool()
+    static void generateEnemyPool()
     {
         // for each enemy cache, populate it with (inactive) enemies of that type.
         // the number of enemies added to each cache is dependent on the maxEnemy variables.
@@ -149,10 +168,10 @@ public class EnemyManager : MonoBehaviour
     void TrySpawnEnemy(int enemyType, int spawnInterval, int probabilityCutoff, Func<double, double> calculateSpawnProbability)
     {
         // check if we're within the spawn interval
-        if (((int)Time.time % spawnInterval == 0) && (enemyCaches[enemyType].Count > 0))
+        if (((int)GameManager.getGameTime() % spawnInterval == 0) && (enemyCaches[enemyType].Count > 0))
         {
             // determine the spawn probability
-            double spawnProbability = calculateSpawnProbability((double)Time.time);
+            double spawnProbability = calculateSpawnProbability((double)GameManager.getGameTime());
             if (spawnProbability > probabilityCutoff)
                 spawnProbability = probabilityCutoff;
 
@@ -162,7 +181,7 @@ public class EnemyManager : MonoBehaviour
                 int finalRadius = spawnRadius;
 
                 // spawn enemies closer for the first 15 seconds to apply immediate pressure
-                if (Time.time < 10)
+                if (GameManager.getGameTime() < 10)
                     finalRadius = spawnRadius / 3;
 
                 // enemy 5's should spawn in the playable area
