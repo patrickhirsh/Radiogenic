@@ -24,23 +24,25 @@ public class Enemy_02_controller : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (GameManager.gameState == 1)
+        {
+            //rotate to look at the player
+            //transform.LookAt(target.position);
+            Vector2 direction = target.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            angle += -90;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            //rb.AddForce(transform.forward * speed);
+            var direction2 = Vector3.zero;
+            //move towards the player
+            if (Vector3.Distance(transform.position, target.position) > hitbox)
+            {//move if distance from target is greater than 1
+                direction2 = target.position - transform.position;
+                rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
 
-        //rotate to look at the player
-        //transform.LookAt(target.position);
-        Vector2 direction = target.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        angle += -90;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        //rb.AddForce(transform.forward * speed);
-        var direction2 = Vector3.zero;
-        //move towards the player
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
-        {//move if distance from target is greater than 1
-            direction2 = target.position - transform.position;
-            rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
-
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+                Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            }
         }
     }
 

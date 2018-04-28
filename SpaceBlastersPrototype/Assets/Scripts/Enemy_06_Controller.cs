@@ -28,7 +28,6 @@ public class Enemy_06_Controller : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.drag = dragVal;
-
         rb.drag = DragVal;
         
         //we need to assign the target here, otherwise enemies generated at runtime won't have a target
@@ -37,53 +36,55 @@ public class Enemy_06_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.gameState == 1)
+        {
+            Vector2 rotvec = target.position - transform.position;
+            float angle = Mathf.Atan2(rotvec.y, rotvec.x) * Mathf.Rad2Deg;
+            angle += -90;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+            if (Vector3.Distance(transform.position, target.position) > hitbox)
+            {
+                //reset direction every update
+                var direction = Vector3.zero;
+                //set direction to be pointing towards player
+                direction = target.position - transform.position;
+                //add forst in the desired direction at the desired speed
+                rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
 
-        Vector2 rotvec = target.position - transform.position;
-        float angle = Mathf.Atan2(rotvec.y, rotvec.x) * Mathf.Rad2Deg;
-        angle += -90;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
-        {
-            //reset direction every update
-            var direction = Vector3.zero;
-            //set direction to be pointing towards player
-            direction = target.position - transform.position;
-            //add forst in the desired direction at the desired speed
-            rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
+                //clamp so we don't go too fast
+                Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            }
+            else
+            {
+                //reset direction every update
+                var direction = Vector3.zero;
+                //set direction to be pointing towards player
+                direction = target.position - transform.position;
+                //add forst in the desired direction at the desired speed
+                rb.AddForce(direction.normalized * speed * -1, ForceMode2D.Force);
 
-            //clamp so we don't go too fast
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
-        }
-        else
-        {
-            //reset direction every update
-            var direction = Vector3.zero;
-            //set direction to be pointing towards player
-            direction = target.position - transform.position;
-            //add forst in the desired direction at the desired speed
-            rb.AddForce(direction.normalized * speed * -1, ForceMode2D.Force);
-
-            //clamp so we don't go too fast
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
-        }
-        periodz1 += .05f;
-        periodz3 += .05f;
-        periodz4 += .05f;
-        if(periodz1 > periodz2)
-        {
-            periodz1 = 0;
-            spawnBomb();
-        }
-        if(periodz3 > periodz2)
-        {
-            periodz3 = 0;
-            chargeatem();
-        }
-        if (periodz4 > periodz2)
-        {
-            periodz4 = 0;
-            endcharge();
+                //clamp so we don't go too fast
+                Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            }
+            periodz1 += .05f;
+            periodz3 += .05f;
+            periodz4 += .05f;
+            if (periodz1 > periodz2)
+            {
+                periodz1 = 0;
+                spawnBomb();
+            }
+            if (periodz3 > periodz2)
+            {
+                periodz3 = 0;
+                chargeatem();
+            }
+            if (periodz4 > periodz2)
+            {
+                periodz4 = 0;
+                endcharge();
+            }
         }
     }
 

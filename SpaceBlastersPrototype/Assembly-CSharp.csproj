@@ -97,6 +97,7 @@
      <Compile Include="Assets\menu\Start\Standard Assets\Utility\TimedObjectDestructor.cs" />
      <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointCircuit.cs" />
      <Compile Include="Assets\menu\Start\Standard Assets\Utility\WaypointProgressTracker.cs" />
+     <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\Resources\All Menu Scenes\SceneLoad.cs" />
      <Compile Include="Assets\Scripts\BlackHoleDrop.cs" />
      <Compile Include="Assets\Scripts\blackHoleScript.cs" />
@@ -113,7 +114,6 @@
      <Compile Include="Assets\Scripts\Enemy_05_Shields.cs" />
      <Compile Include="Assets\Scripts\Enemy_06_Controller.cs" />
      <Compile Include="Assets\Scripts\EnemyController.cs" />
-     <Compile Include="Assets\Scripts\EnemyController2.cs" />
      <Compile Include="Assets\Scripts\EnemyManager.cs" />
      <Compile Include="Assets\Scripts\FollowUV.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />

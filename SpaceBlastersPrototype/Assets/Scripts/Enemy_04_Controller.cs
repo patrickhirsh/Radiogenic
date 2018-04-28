@@ -30,40 +30,42 @@ public class Enemy_04_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if(periodz < Time.time)
+        if (GameManager.gameState == 1)
         {
-            periodz += periodzint;
-            charge1 = true;
-        }
-        //rb.AddForce(transform.forward * speed);
-        var direction = Vector3.zero;
-        //move towards the player
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
-        {//move if distance from target is greater than 1
-            if (charge1)
+            if (periodz < Time.time)
             {
-
-                if (charge2 > 3.0f)
+                periodz += periodzint;
+                charge1 = true;
+            }
+            //rb.AddForce(transform.forward * speed);
+            var direction = Vector3.zero;
+            //move towards the player
+            if (Vector3.Distance(transform.position, target.position) > hitbox)
+            {//move if distance from target is greater than 1
+                if (charge1)
                 {
 
-                    charge1 = false;
-                    charge2 = 0;
-                    direction = target.position - transform.position;
+                    if (charge2 > 3.0f)
+                    {
 
-                    rb.AddForce(direction.normalized * (speed * 7), ForceMode2D.Impulse);
+                        charge1 = false;
+                        charge2 = 0;
+                        direction = target.position - transform.position;
 
-                }
-                else
-                {
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = 0;
-                    Vector2 directionRot = target.position - transform.position;
-                    float angle = Mathf.Atan2(directionRot.y, directionRot.x) * Mathf.Rad2Deg;
-                    angle += -90;
-                    Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-                    charge2 += .1f;
+                        rb.AddForce(direction.normalized * (speed * 7), ForceMode2D.Impulse);
+
+                    }
+                    else
+                    {
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = 0;
+                        Vector2 directionRot = target.position - transform.position;
+                        float angle = Mathf.Atan2(directionRot.y, directionRot.x) * Mathf.Rad2Deg;
+                        angle += -90;
+                        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+                        charge2 += .1f;
+                    }
                 }
             }
         }

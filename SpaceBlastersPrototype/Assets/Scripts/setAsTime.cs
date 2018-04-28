@@ -22,7 +22,7 @@ public class setAsTime : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () 
     {
-        text.text = "Time " + (int)GameManager.getGameTime();
-
+        if (GameManager.gameState == 1)
+            text.text = "Time " + (int)GameManager.getGameTime();
 	}
 }

@@ -29,49 +29,51 @@ public class Enemy_03_Controller : MonoBehaviour {
 
     void FixedUpdate()
     {
-
-        Vector2 rotDirec = target.position - transform.position;
-        float angle = Mathf.Atan2(rotDirec.y, rotDirec.x) * Mathf.Rad2Deg;
-        angle += -90;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
-
-        if(periodz < Time.time)
+        if (GameManager.gameState == 1)
         {
-            periodz += periodzint;
-            charge1 = true;
-        }
-        //rb.AddForce(transform.forward * speed);
-        var direction = Vector3.zero;
-        //move towards the player
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
-        {//move if distance from target is greater than 1
-            if (charge1)
+            Vector2 rotDirec = target.position - transform.position;
+            float angle = Mathf.Atan2(rotDirec.y, rotDirec.x) * Mathf.Rad2Deg;
+            angle += -90;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+
+            if (periodz < Time.time)
             {
-                
-                if (charge2 > 10.0f)
+                periodz += periodzint;
+                charge1 = true;
+            }
+            //rb.AddForce(transform.forward * speed);
+            var direction = Vector3.zero;
+            //move towards the player
+            if (Vector3.Distance(transform.position, target.position) > hitbox)
+            {//move if distance from target is greater than 1
+                if (charge1)
                 {
-                    
-                    charge1 = false;
-                    charge2 = 0;
-                    direction = target.position - transform.position;
 
-                    rb.AddForce(direction.normalized * (speed * 7), ForceMode2D.Impulse);
+                    if (charge2 > 10.0f)
+                    {
 
+                        charge1 = false;
+                        charge2 = 0;
+                        direction = target.position - transform.position;
+
+                        rb.AddForce(direction.normalized * (speed * 7), ForceMode2D.Impulse);
+
+                    }
+                    else
+                    {
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = 0;
+                        charge2 += .1f;
+                    }
                 }
                 else
                 {
-                    rb.velocity = Vector3.zero;
-                    rb.angularVelocity = 0;
-                    charge2 += .1f;
-                }
-            }
-            else
-            {
-                direction = target.position - transform.position;
-                rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
+                    direction = target.position - transform.position;
+                    rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
 
-                //Mathf.Clamp(rb.velocity.magnitude, -3f, 3f);
+                    //Mathf.Clamp(rb.velocity.magnitude, -3f, 3f);
+                }
             }
         }
     }

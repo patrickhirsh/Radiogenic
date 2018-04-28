@@ -24,33 +24,38 @@ public class Enemy_05_Controller : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, target.position) > hitbox)
+        if (GameManager.gameState == 1)
         {
-            //reset direction every update
-            var direction = Vector3.zero;
-            //set direction to be pointing towards player
-            direction = target.position - transform.position;
-            //add forst in the desired direction at the desired speed
-            rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
 
-            //clamp so we don't go too fast
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            if (Vector3.Distance(transform.position, target.position) > hitbox)
+            {
+                //reset direction every update
+                var direction = Vector3.zero;
+                //set direction to be pointing towards player
+                direction = target.position - transform.position;
+                //add forst in the desired direction at the desired speed
+                rb.AddForce(direction.normalized * speed, ForceMode2D.Force);
+
+                //clamp so we don't go too fast
+                Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            }
+            else
+            {
+                //reset direction every update
+                var direction = Vector3.zero;
+                //set direction to be pointing towards player
+                direction = target.position - transform.position;
+                //add forst in the desired direction at the desired speed
+                rb.AddForce(direction.normalized * speed * -1, ForceMode2D.Force);
+
+                //clamp so we don't go too fast
+                Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
+            }
+
+            EnemyManager.enemy05ClusterSpawn(this.gameObject);
+            //Physics2D.CircleCast()
+
         }
-        else
-        {
-            //reset direction every update
-            var direction = Vector3.zero;
-            //set direction to be pointing towards player
-            direction = target.position - transform.position;
-            //add forst in the desired direction at the desired speed
-            rb.AddForce(direction.normalized * speed * -1, ForceMode2D.Force);
-
-            //clamp so we don't go too fast
-            Mathf.Clamp(rb.velocity.magnitude, .3f, 3f);
-        }
-
-        EnemyManager.enemy05ClusterSpawn(this.gameObject);
-        //Physics2D.CircleCast()
     }
 
     //This is the function we need to call from the bullet object when we hit the correct collider

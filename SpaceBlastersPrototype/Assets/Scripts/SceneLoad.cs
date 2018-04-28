@@ -10,7 +10,11 @@ public class SceneLoad : MonoBehaviour {
     public void loadscene()
     {
         if (scenename == "Main")
+        {
+            Debug.Log("HITTTTTTTT\n");
             GameManager.Restart();
+            GameManager.gameState = 1;
+        }
         SceneManager.LoadScene(scenename);
     }
 }

@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-
+public class GameManager : MonoBehaviour
+{
     public static int gameState = 0;
-    public static float gameStartTime = 0f;
+    // GAMESTATE is used to indicate what point our game is currently at
+    // gameState == 0, Menus
+    // gameState == 1, In-Game
 
+    public static float gameStartTime = 0f;
     public GameObject powerUp;
     public float pwrUpTimer = 0f;
     public bool powerUpOut = false;
@@ -23,9 +26,15 @@ public class GameManager : MonoBehaviour {
     {
         pwrUpTimer = Time.time;
 	}
+
+    void Awake()
+    {
+        gameState = 1;
+    }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate()
+    {
         if (pwrUpTimer + 15 < Time.time && powerUpCount < 2)
         {
             spawnPowerup();
@@ -38,8 +47,6 @@ public class GameManager : MonoBehaviour {
             room3Taken = false;
             room4Taken = false;
         }
-
-
 	}
 
     public static void Restart()

@@ -102,6 +102,7 @@ public class EnemyManager : MonoBehaviour
     void Awake()
     {
         Restart();
+        GameManager.gameState = 1;
 
         if (EM == null)
         {
@@ -116,6 +117,7 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         rnd = new System.Random();
+        GameManager.gameState = 1;
         generateEnemyPool();
     }
 
@@ -123,6 +125,7 @@ public class EnemyManager : MonoBehaviour
     public static void Restart()
     {
         rnd = new System.Random();
+        GameManager.gameState = 1;
 
         enemy01Cache.Clear();
         enemy02Cache.Clear();
@@ -134,20 +137,20 @@ public class EnemyManager : MonoBehaviour
         enemyCaches.Clear();
         enemyCaches = new List<Stack<GameObject>>() { enemy01Cache, enemy02Cache, enemy03Cache, enemy04Cache, enemy05Cache, enemy06Cache };
         generateEnemyPool();
-        
     }
 
     // FixedUpdate is called 30 times per second
     void FixedUpdate()
     {
-        TrySpawnEnemy(0, 1, 20, enemy01SpawnProbability);
-        TrySpawnEnemy(1, 10, 4, enemy02SpawnProbability);
-        TrySpawnEnemy(2, 5, 10, enemy03SpawnProbability);
-        TrySpawnEnemy(3, 1, 12, enemy04SpawnProbability);
-        TrySpawnEnemy(4, 14, 3, enemy05SpawnProbability);
-        //TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
-
-
+        if (GameManager.gameState == 1)
+        {
+            TrySpawnEnemy(0, 1, 20, enemy01SpawnProbability);
+            TrySpawnEnemy(1, 10, 4, enemy02SpawnProbability);
+            TrySpawnEnemy(2, 5, 10, enemy03SpawnProbability);
+            TrySpawnEnemy(3, 1, 12, enemy04SpawnProbability);
+            TrySpawnEnemy(4, 14, 3, enemy05SpawnProbability);
+            //TrySpawnEnemy(5, 10, 4, enemy06SpawnProbability);
+        }
     }
 
     static void generateEnemyPool()
